@@ -1,0 +1,43 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "LmMobileApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/test": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "TestEndpoint",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/test/database": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "TestDatabase",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "LmMobileApi.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__0_1",
+    "RelativePath": "api/test",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Test"
+    ],
+    "EndpointName": "TestEndpoint"
+  },
+  {
+    "ContainingType": "LmMobileApi.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__0_2",
+    "RelativePath": "api/test/database",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Test"
+    ],
+    "EndpointName": "TestDatabase"
+  }
+]
