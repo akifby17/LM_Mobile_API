@@ -5,32 +5,30 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/test": {
-      "get": {
+    "/api/test/user": {
+      "post": {
         "tags": [
           "Test"
         ],
-        "operationId": "TestEndpoint",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              }
+        "operationId": "TestUserAuth",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        }
-      }
-    },
-    "/api/test/database": {
-      "get": {
-        "tags": [
-          "Test"
         ],
-        "operationId": "TestDatabase",
         "responses": {
           "200": {
             "description": "OK"

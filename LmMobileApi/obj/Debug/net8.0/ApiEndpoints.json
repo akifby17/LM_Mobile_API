@@ -2,33 +2,22 @@
   {
     "ContainingType": "LmMobileApi.Program\u002B\u003C\u003Ec",
     "Method": "\u003CMain\u003Eb__0_1",
-    "RelativePath": "api/test",
-    "HttpMethod": "GET",
+    "RelativePath": "api/test/user",
+    "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
+        "Name": "userName",
         "Type": "System.String",
-        "MediaTypes": [
-          "text/plain"
-        ],
-        "StatusCode": 200
+        "IsRequired": true
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": true
       }
     ],
-    "Tags": [
-      "Test"
-    ],
-    "EndpointName": "TestEndpoint"
-  },
-  {
-    "ContainingType": "LmMobileApi.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__0_2",
-    "RelativePath": "api/test/database",
-    "HttpMethod": "GET",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.Void",
@@ -39,6 +28,6 @@
     "Tags": [
       "Test"
     ],
-    "EndpointName": "TestDatabase"
+    "EndpointName": "TestUserAuth"
   }
 ]

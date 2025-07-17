@@ -19,6 +19,8 @@
     <Folder Include="Controllers\" />
     <Folder Include="Migration\Scripts\" />
     <Folder Include="Options\" />
+    <Folder Include="Users\Application\Services\" />
+    <Folder Include="Users\Presentation\" />
   </ItemGroup>
 
 </Project>

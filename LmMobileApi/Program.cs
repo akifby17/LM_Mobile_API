@@ -1,9 +1,9 @@
 ﻿using System.Data;
 using DbUp;
 using LmMobileApi.Shared.Data;
+using LmMobileApi.Users.Infrastructure.Repositories;
+using LmMobileApi.Users.Domain;
 using Microsoft.Data.SqlClient;
-using System.Data.Common;
-
 
 namespace LmMobileApi
 {
@@ -17,19 +17,15 @@ namespace LmMobileApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // **YENİ: Database bağlantısı ve migration**
-
-            // 1. Connection string kontrolü
+            // Database bağlantısı ve migration
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             if (string.IsNullOrEmpty(connectionString))
             {
                 throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             }
 
-            // 2. Database var mı kontrol et (mevcut DB için)
             EnsureDatabase.For.SqlDatabase(connectionString);
 
-            // 3. DbUp konfigürasyonu (şimdilik script yok, sadece hazırlık)
             var upgrader = DeployChanges.To
                 .SqlDatabase(connectionString)
                 .WithScriptsEmbeddedInAssembly(typeof(Program).Assembly)
@@ -48,12 +44,15 @@ namespace LmMobileApi
                 return;
             }
 
-            // 4. Database servisleri DI'ya kaydet
+            // Database servisleri DI'ya kaydet
             builder.Services.AddScoped<IDbConnection>(sp =>
                 new SqlConnection(connectionString));
 
             builder.Services.AddScoped<IDatabaseContext, DapperDatabaseContext>();
             builder.Services.AddScoped<IUnitOfWork, DapperUnitOfWork>();
+
+            // User Repository
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             var app = builder.Build();
 
@@ -63,28 +62,62 @@ namespace LmMobileApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
-            // Test endpoints
-            app.MapGet("/api/test", () => "LmMobileApi çalışıyor! 🚀")
-                .WithName("TestEndpoint")
-                .WithTags("Test");
-
-            app.MapGet("/api/test/database", async (IDbConnection connection) =>
+            app.MapPost("/api/test/user", async (IUserRepository userRepository, string userName, string password) =>
             {
                 try
                 {
-                    var dbConn = (DbConnection)connection;
-                    await dbConn.OpenAsync();
-                    return Results.Ok(new { success = true, message = "Database bağlantısı başarılı! ✅" });
+                    // Debug log
+                    Console.WriteLine($"Test başladı: userName={userName}, password={password}");
+
+                    // User oluştur
+                    var user = new User(userName, password);
+                    Console.WriteLine("User objesi oluşturuldu");
+
+                    // Repository test
+                    var repositoryResult = await userRepository.GetUserAsync(user);
+                    Console.WriteLine($"Repository sonucu: IsSuccess={repositoryResult.IsSuccess}");
+
+                    // Sonuç dön
+                    if (repositoryResult.IsSuccess && repositoryResult.Data != null)
+                    {
+                        return Results.Ok(new
+                        {
+                            success = true,
+                            user = new
+                            {
+                                userName = repositoryResult.Data.UserName,
+                                personnelId = repositoryResult.Data.PersonnelId
+                            },
+                            message = "User authentication test successful! ✅"
+                        });
+                    }
+                    else
+                    {
+                        return Results.BadRequest(new
+                        {
+                            success = false,
+                            error = repositoryResult.Error.Code,
+                            message = repositoryResult.Error.Description,
+                            details = "User not found or authentication failed"
+                        });
+                    }
                 }
                 catch (Exception ex)
                 {
-                    return Results.BadRequest(new { success = false, error = ex.Message });
+                    Console.WriteLine($"Exception: {ex.Message}");
+                    Console.WriteLine($"StackTrace: {ex.StackTrace}");
+
+                    return Results.BadRequest(new
+                    {
+                        success = false,
+                        error = "Exception",
+                        message = ex.Message,
+                        stackTrace = ex.StackTrace
+                    });
                 }
             })
-                .WithName("TestDatabase")
+            .WithName("TestUserAuth")
             .WithTags("Test");
-
 
             app.Run();
         }
