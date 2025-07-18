@@ -1,33 +1,55 @@
 [
   {
-    "ContainingType": "LmMobileApi.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__0_1",
-    "RelativePath": "api/test/user",
-    "HttpMethod": "POST",
+    "ContainingType": "LmMobileApi.Users.Presentation.UserEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__0_1",
+    "RelativePath": "api/users/check-token",
+    "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userName",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "password",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 401
       }
     ],
     "Tags": [
-      "Test"
+      "Users"
     ],
-    "EndpointName": "TestUserAuth"
+    "EndpointName": "CheckToken"
+  },
+  {
+    "ContainingType": "LmMobileApi.Users.Presentation.UserEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__0_0",
+    "RelativePath": "api/users/login",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "LmMobileApi.Users.Domain.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LmMobileApi.Users.Domain.Contracts.LoginResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Users"
+    ],
+    "EndpointName": "UserLogin"
   }
 ]

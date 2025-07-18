@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -19,8 +19,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Migration\Scripts\" />
     <Folder Include="Options\" />
-    <Folder Include="Users\Application\Services\" />
-    <Folder Include="Users\Presentation\" />
   </ItemGroup>
 
 </Project>

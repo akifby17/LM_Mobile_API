@@ -1,41 +1,104 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "LmMobileApi",
-    "version": "1.0"
+    "title": "Loom Monitoring Web Api",
+    "version": "v1.0.0"
   },
   "paths": {
-    "/api/test/user": {
+    "/api/users/login": {
       "post": {
         "tags": [
-          "Test"
+          "Users"
         ],
-        "operationId": "TestUserAuth",
-        "parameters": [
-          {
-            "name": "userName",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
+        "operationId": "UserLogin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
             }
           },
-          {
-            "name": "password",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
             }
           }
+        }
+      }
+    },
+    "/api/users/check-token": {
+      "get": {
+        "tags": [
+          "Users"
         ],
+        "operationId": "CheckToken",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
     }
   },
-  "components": { }
+  "components": {
+    "schemas": {
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "personnelId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "personnelId": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "scheme": "Bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

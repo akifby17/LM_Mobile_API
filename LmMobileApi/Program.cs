@@ -1,9 +1,14 @@
 ﻿using System.Data;
+using System.Text;
 using DbUp;
 using LmMobileApi.Shared.Data;
+using LmMobileApi.Shared.Endpoints;
 using LmMobileApi.Users.Infrastructure.Repositories;
 using LmMobileApi.Users.Domain;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace LmMobileApi
 {
@@ -15,7 +20,64 @@ namespace LmMobileApi
 
             // Add services to the container.
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+
+            // **YENİ: Swagger + JWT Configuration**
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new() { Title = "Loom Monitoring Web Api", Version = "v1.0.0" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
+            });
+
+            // **YENİ: JWT Authentication**
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = "Touchtech",
+                        ValidAudience = "Touchtech",
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("Touchtech-Bilgi-Teknolojileri-Yazılım-Danismanlik")),
+                    };
+                });
+
+            // **YENİ: Authorization**
+            builder.Services.AddAuthorization();
+
+            // **YENİ: CORS**
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(corsPolicyBuilder =>
+                {
+                    corsPolicyBuilder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
 
             // Database bağlantısı ve migration
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -51,10 +113,21 @@ namespace LmMobileApi
             builder.Services.AddScoped<IDatabaseContext, DapperDatabaseContext>();
             builder.Services.AddScoped<IUnitOfWork, DapperUnitOfWork>();
 
-            // User Repository
+            // **YENİ: User servisleri**
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUserService, UserService>();
+
+            // **YENİ: Endpoint sistemi**
+            builder.Services.AddEndpoints(typeof(Program).Assembly);
 
             var app = builder.Build();
+
+            // **YENİ: Authentication & Authorization middleware**
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            // **YENİ: CORS**
+            app.UseCors();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -62,62 +135,9 @@ namespace LmMobileApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.MapPost("/api/test/user", async (IUserRepository userRepository, string userName, string password) =>
-            {
-                try
-                {
-                    // Debug log
-                    Console.WriteLine($"Test başladı: userName={userName}, password={password}");
 
-                    // User oluştur
-                    var user = new User(userName, password);
-                    Console.WriteLine("User objesi oluşturuldu");
-
-                    // Repository test
-                    var repositoryResult = await userRepository.GetUserAsync(user);
-                    Console.WriteLine($"Repository sonucu: IsSuccess={repositoryResult.IsSuccess}");
-
-                    // Sonuç dön
-                    if (repositoryResult.IsSuccess && repositoryResult.Data != null)
-                    {
-                        return Results.Ok(new
-                        {
-                            success = true,
-                            user = new
-                            {
-                                userName = repositoryResult.Data.UserName,
-                                personnelId = repositoryResult.Data.PersonnelId
-                            },
-                            message = "User authentication test successful! ✅"
-                        });
-                    }
-                    else
-                    {
-                        return Results.BadRequest(new
-                        {
-                            success = false,
-                            error = repositoryResult.Error.Code,
-                            message = repositoryResult.Error.Description,
-                            details = "User not found or authentication failed"
-                        });
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Exception: {ex.Message}");
-                    Console.WriteLine($"StackTrace: {ex.StackTrace}");
-
-                    return Results.BadRequest(new
-                    {
-                        success = false,
-                        error = "Exception",
-                        message = ex.Message,
-                        stackTrace = ex.StackTrace
-                    });
-                }
-            })
-            .WithName("TestUserAuth")
-            .WithTags("Test");
+            // **YENİ: Endpoints mapping**
+            app.MapEndpoints();
 
             app.Run();
         }
