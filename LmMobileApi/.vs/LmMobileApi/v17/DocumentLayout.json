@@ -3,16 +3,44 @@
   "WorkspaceRootPath": "D:\\LM API\\LmMobileApi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\personnels\\presentation\\personnelendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:personnels\\presentation\\personnelendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\personnels\\application\\services\\personnelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:personnels\\application\\services\\personnelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\shared\\endpoints\\endpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:shared\\endpoints\\endpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\shared\\application\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:shared\\application\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\presentation\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\presentation\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\presentation\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\presentation\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\personnels\\infrastructure\\repositories\\personnelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:personnels\\infrastructure\\repositories\\personnelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\personnels\\domain\\personnel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:personnels\\domain\\personnel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,19 +55,103 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PersonnelEndpoint.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Personnels\\Presentation\\PersonnelEndpoint.cs",
+              "RelativeDocumentMoniker": "Personnels\\Presentation\\PersonnelEndpoint.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Personnels\\Presentation\\PersonnelEndpoint.cs",
+              "RelativeToolTip": "Personnels\\Presentation\\PersonnelEndpoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T14:11:39.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PersonnelRepository.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Personnels\\Infrastructure\\Repositories\\PersonnelRepository.cs",
+              "RelativeDocumentMoniker": "Personnels\\Infrastructure\\Repositories\\PersonnelRepository.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Personnels\\Infrastructure\\Repositories\\PersonnelRepository.cs",
+              "RelativeToolTip": "Personnels\\Infrastructure\\Repositories\\PersonnelRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T14:11:02.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PersonnelService.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Personnels\\Application\\Services\\PersonnelService.cs",
+              "RelativeDocumentMoniker": "Personnels\\Application\\Services\\PersonnelService.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Personnels\\Application\\Services\\PersonnelService.cs",
+              "RelativeToolTip": "Personnels\\Application\\Services\\PersonnelService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T14:10:26.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Personnel.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Personnels\\Domain\\Personnel.cs",
+              "RelativeDocumentMoniker": "Personnels\\Domain\\Personnel.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Personnels\\Domain\\Personnel.cs",
+              "RelativeToolTip": "Personnels\\Domain\\Personnel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T10:00:59.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Endpoint.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Shared\\Endpoints\\Endpoint.cs",
+              "RelativeDocumentMoniker": "Shared\\Endpoints\\Endpoint.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Shared\\Endpoints\\Endpoint.cs",
+              "RelativeToolTip": "Shared\\Endpoints\\Endpoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T17:42:54.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationService.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Shared\\Application\\ApplicationService.cs",
+              "RelativeDocumentMoniker": "Shared\\Application\\ApplicationService.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Shared\\Application\\ApplicationService.cs",
+              "RelativeToolTip": "Shared\\Application\\ApplicationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T17:42:46.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Domain\\User.cs",
+              "RelativeDocumentMoniker": "Users\\Domain\\User.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Domain\\User.cs",
+              "RelativeToolTip": "Users\\Domain\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T17:42:31.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\LM API\\LmMobileApi\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAACOAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T14:36:33.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-18T14:36:33.557Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "UserEndpoints.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Presentation\\UserEndpoints.cs",
               "RelativeDocumentMoniker": "Users\\Presentation\\UserEndpoints.cs",
@@ -47,21 +159,19 @@
               "RelativeToolTip": "Users\\Presentation\\UserEndpoints.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T14:24:11.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-18T14:24:11.734Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "UserService.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Application\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Users\\Application\\Services\\UserService.cs",
               "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Application\\Services\\UserService.cs",
               "RelativeToolTip": "Users\\Application\\Services\\UserService.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAqwCAAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T14:13:45.827Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-18T14:13:45.827Z"
             }
           ]
         }

@@ -9,6 +9,9 @@ using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using LmMobileApi.Personnels.Application.Services;
+using LmMobileApi.Personnels.Infrastructure.Repositories;
+
 
 namespace LmMobileApi
 {
@@ -21,7 +24,6 @@ namespace LmMobileApi
             // Add services to the container.
             builder.Services.AddEndpointsApiExplorer();
 
-            // **YENİ: Swagger + JWT Configuration**
             builder.Services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new() { Title = "Loom Monitoring Web Api", Version = "v1.0.0" });
@@ -48,8 +50,6 @@ namespace LmMobileApi
                     }
                 });
             });
-
-            // **YENİ: JWT Authentication**
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -65,10 +65,10 @@ namespace LmMobileApi
                     };
                 });
 
-            // **YENİ: Authorization**
+           
             builder.Services.AddAuthorization();
 
-            // **YENİ: CORS**
+  
             builder.Services.AddCors(options =>
             {
                 options.AddDefaultPolicy(corsPolicyBuilder =>
@@ -78,6 +78,13 @@ namespace LmMobileApi
                         .AllowAnyHeader();
                 });
             });
+            // User servisleri
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUserService, UserService>();
+
+            // **YENİ: Personnel servisleri**
+            builder.Services.AddScoped<IPersonnelRepository, PersonnelRepository>();
+            builder.Services.AddScoped<IPersonnelService, PersonnelService>();
 
             // Database bağlantısı ve migration
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

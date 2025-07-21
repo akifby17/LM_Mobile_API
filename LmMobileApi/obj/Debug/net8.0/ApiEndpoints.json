@@ -1,5 +1,27 @@
 [
   {
+    "ContainingType": "LmMobileApi.Personnels.Presentation.PersonnelEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__0_0",
+    "RelativePath": "api/personnels",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.ICollection\u00601[[LmMobileApi.Personnels.Domain.Personnel, LmMobileApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Personnels"
+    ],
+    "EndpointName": "GetPersonnelsAsync"
+  },
+  {
     "ContainingType": "LmMobileApi.Users.Presentation.UserEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapEndpoint\u003Eb__0_1",
     "RelativePath": "api/users/check-token",

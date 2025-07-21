@@ -5,6 +5,29 @@
     "version": "v1.0.0"
   },
   "paths": {
+    "/api/personnels": {
+      "get": {
+        "tags": [
+          "Personnels"
+        ],
+        "operationId": "GetPersonnelsAsync",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Personnel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/users/login": {
       "post": {
         "tags": [
@@ -64,6 +87,22 @@
           "personnelId": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Personnel": {
+        "type": "object",
+        "properties": {
+          "personnelID": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "personnelName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false

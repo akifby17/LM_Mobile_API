@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Personnels",
+    "\\Personnels\\Application",
+    "\\Personnels\\Application\\Services",
+    "\\Personnels\\Domain",
+    "\\Personnels\\Infrastructure",
+    "\\Personnels\\Infrastructure\\Repositories",
+    "\\Personnels\\Presentation"
   ],
-  "SelectedNode": "\\LmMobileApi.sln",
+  "SelectedNode": "\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
