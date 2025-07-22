@@ -1,16 +1,21 @@
-﻿using System.Data;
-using System.Text;
-using DbUp;
-using LmMobileApi.Shared.Data;
-using LmMobileApi.Shared.Endpoints;
-using LmMobileApi.Users.Infrastructure.Repositories;
-using LmMobileApi.Users.Domain;
-using Microsoft.Data.SqlClient;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
+﻿using DbUp;
+using LmMobileApi.Operations.Application.Services;
+using LmMobileApi.Operations.Infrastructure;
 using LmMobileApi.Personnels.Application.Services;
 using LmMobileApi.Personnels.Infrastructure.Repositories;
+using LmMobileApi.Shared.Data;
+using LmMobileApi.Shared.Endpoints;
+using LmMobileApi.Users.Application.Services;
+using LmMobileApi.Users.Domain;
+using LmMobileApi.Users.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Data;
+using System.Text;
+using LmMobileApi.Operations.Infrastructure;
+using LmMobileApi.Operations.Application.Services;
 
 
 namespace LmMobileApi
@@ -65,10 +70,10 @@ namespace LmMobileApi
                     };
                 });
 
-           
+
             builder.Services.AddAuthorization();
 
-  
+
             builder.Services.AddCors(options =>
             {
                 options.AddDefaultPolicy(corsPolicyBuilder =>
@@ -80,13 +85,29 @@ namespace LmMobileApi
             });
             // User servisleri
             builder.Services.AddScoped<IUserRepository, UserRepository>();
-            builder.Services.AddScoped<IUserService, UserService>();
+    
 
-            // **YENİ: Personnel servisleri**
+            // GÜNCEL:
+            builder.Services.AddScoped<IUserService>(provider =>
+            {
+                var userRepository = provider.GetRequiredService<IUserRepository>();
+                var refreshTokenRepository = provider.GetRequiredService<IRefreshTokenRepository>();
+                var unitOfWork = provider.GetRequiredService<IUnitOfWork>();
+                return new UserService(userRepository, refreshTokenRepository, unitOfWork);
+            });
+
+            builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+          
+            builder.Services.AddHostedService<RefreshTokenCleanupService>();
+
             builder.Services.AddScoped<IPersonnelRepository, PersonnelRepository>();
             builder.Services.AddScoped<IPersonnelService, PersonnelService>();
 
-            // Database bağlantısı ve migration
+            // **YENİ: Operations servisleri**
+            builder.Services.AddScoped<IOperationRepository, OperationRepository>();
+            builder.Services.AddScoped<IOperationService, OperationService>();
+
+
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             if (string.IsNullOrEmpty(connectionString))
             {
@@ -112,38 +133,36 @@ namespace LmMobileApi
 #endif
                 return;
             }
-
-            // Database servisleri DI'ya kaydet
             builder.Services.AddScoped<IDbConnection>(sp =>
                 new SqlConnection(connectionString));
 
             builder.Services.AddScoped<IDatabaseContext, DapperDatabaseContext>();
             builder.Services.AddScoped<IUnitOfWork, DapperUnitOfWork>();
 
-            // **YENİ: User servisleri**
+            
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
 
-            // **YENİ: Endpoint sistemi**
+            
             builder.Services.AddEndpoints(typeof(Program).Assembly);
 
             var app = builder.Build();
 
-            // **YENİ: Authentication & Authorization middleware**
+          
             app.UseAuthentication();
             app.UseAuthorization();
 
-            // **YENİ: CORS**
+            
             app.UseCors();
 
-            // Configure the HTTP request pipeline.
+            
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
-            // **YENİ: Endpoints mapping**
+           
             app.MapEndpoints();
 
             app.Run();

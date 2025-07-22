@@ -1,10 +1,8 @@
 ﻿namespace LmMobileApi.Users.Domain.Contracts;
 
-public record LoginResponse(
+public record RefreshTokenResponse(
     string AccessToken,
     string RefreshToken,
-    int PersonnelId,
     DateTime AccessTokenExpiresAt,
     DateTime RefreshTokenExpiresAt
 );
-

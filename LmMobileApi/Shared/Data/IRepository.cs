@@ -15,9 +15,13 @@ public class DapperRepository(IUnitOfWork unitOfWork) : IRepository
 {
     public async Task<Result<IEnumerable<T>>> QueryAsync<T>(string sql, object? param = null, CancellationToken cancellationToken = default)
     {
-        var connectionResult = await unitOfWork.OpenConnectionAsync(cancellationToken);
-        if (connectionResult.IsFailure)
-            return connectionResult.Error;
+        // Transaction yoksa bağlantıyı kontrol et ve aç
+        if (unitOfWork.Transaction == null)
+        {
+            var connectionResult = await unitOfWork.OpenConnectionAsync(cancellationToken);
+            if (connectionResult.IsFailure)
+                return connectionResult.Error;
+        }
 
         try
         {
@@ -32,7 +36,8 @@ public class DapperRepository(IUnitOfWork unitOfWork) : IRepository
 
     public async Task<Result<T?>> QueryFirstOrDefaultAsync<T>(string sql, object? param = null, CancellationToken cancellationToken = default)
     {
-        if (unitOfWork.Connection.State != System.Data.ConnectionState.Open)
+        // Transaction yoksa bağlantıyı kontrol et ve aç
+        if (unitOfWork.Transaction == null && unitOfWork.Connection.State != System.Data.ConnectionState.Open)
         {
             var connectionResult = await unitOfWork.OpenConnectionAsync(cancellationToken);
             if (connectionResult.IsFailure)
@@ -52,9 +57,13 @@ public class DapperRepository(IUnitOfWork unitOfWork) : IRepository
 
     public async Task<Result<int>> ExecuteAsync(string sql, object? param = null, CancellationToken cancellationToken = default)
     {
-        var connectionResult = await unitOfWork.OpenConnectionAsync(cancellationToken);
-        if (connectionResult.IsFailure)
-            return connectionResult.Error;
+        // Transaction yoksa bağlantıyı kontrol et ve aç
+        if (unitOfWork.Transaction == null)
+        {
+            var connectionResult = await unitOfWork.OpenConnectionAsync(cancellationToken);
+            if (connectionResult.IsFailure)
+                return connectionResult.Error;
+        }
 
         try
         {

@@ -1,5 +1,27 @@
 [
   {
+    "ContainingType": "LmMobileApi.Operations.Presentation.OperationEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__0_0",
+    "RelativePath": "api/operations",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.ICollection\u00601[[LmMobileApi.Operations.Domain.Operation, LmMobileApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Operations"
+    ],
+    "EndpointName": "GetOperationsAsync"
+  },
+  {
     "ContainingType": "LmMobileApi.Personnels.Presentation.PersonnelEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapEndpoint\u003Eb__0_0",
     "RelativePath": "api/personnels",
@@ -23,7 +45,7 @@
   },
   {
     "ContainingType": "LmMobileApi.Users.Presentation.UserEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapEndpoint\u003Eb__0_1",
+    "Method": "\u003CMapEndpoint\u003Eb__0_3",
     "RelativePath": "api/users/check-token",
     "HttpMethod": "GET",
     "IsController": false,
@@ -73,5 +95,59 @@
       "Users"
     ],
     "EndpointName": "UserLogin"
+  },
+  {
+    "ContainingType": "LmMobileApi.Users.Presentation.UserEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__0_1",
+    "RelativePath": "api/users/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "LmMobileApi.Users.Domain.Contracts.RefreshTokenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LmMobileApi.Users.Domain.Contracts.RefreshTokenResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Users"
+    ],
+    "EndpointName": "RefreshToken"
+  },
+  {
+    "ContainingType": "LmMobileApi.Users.Presentation.UserEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__0_2",
+    "RelativePath": "api/users/revoke-token",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "LmMobileApi.Users.Domain.Contracts.RefreshTokenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Users"
+    ],
+    "EndpointName": "RevokeToken"
   }
 ]
