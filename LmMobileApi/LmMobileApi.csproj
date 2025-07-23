@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Looms\Application\Services\" />
+    <Folder Include="Looms\Presentation\" />
     <Folder Include="Options\" />
   </ItemGroup>
 

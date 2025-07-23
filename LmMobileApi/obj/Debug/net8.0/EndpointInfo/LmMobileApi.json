@@ -51,6 +51,42 @@
         }
       }
     },
+    "/api/test/looms": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "TestLooms",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/test/loom/{loomNo}": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "TestSingleLoom",
+        "parameters": [
+          {
+            "name": "loomNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/users/login": {
       "post": {
         "tags": [

@@ -44,6 +44,52 @@
     "EndpointName": "GetPersonnelsAsync"
   },
   {
+    "ContainingType": "LmMobileApi.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__0_6",
+    "RelativePath": "api/test/loom/{loomNo}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loomNo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Test"
+    ],
+    "EndpointName": "TestSingleLoom"
+  },
+  {
+    "ContainingType": "LmMobileApi.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__0_5",
+    "RelativePath": "api/test/looms",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Test"
+    ],
+    "EndpointName": "TestLooms"
+  },
+  {
     "ContainingType": "LmMobileApi.Users.Presentation.UserEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapEndpoint\u003Eb__0_3",
     "RelativePath": "api/users/check-token",

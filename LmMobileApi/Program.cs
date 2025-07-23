@@ -1,5 +1,8 @@
 ﻿using DbUp;
+using LmMobileApi.Looms.Infrastructure.Repositories;
 using LmMobileApi.Operations.Application.Services;
+using LmMobileApi.Operations.Application.Services;
+using LmMobileApi.Operations.Infrastructure;
 using LmMobileApi.Operations.Infrastructure;
 using LmMobileApi.Personnels.Application.Services;
 using LmMobileApi.Personnels.Infrastructure.Repositories;
@@ -14,8 +17,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Data;
 using System.Text;
-using LmMobileApi.Operations.Infrastructure;
-using LmMobileApi.Operations.Application.Services;
 
 
 namespace LmMobileApi
@@ -107,6 +108,8 @@ namespace LmMobileApi
             builder.Services.AddScoped<IOperationRepository, OperationRepository>();
             builder.Services.AddScoped<IOperationService, OperationService>();
 
+            builder.Services.AddScoped<ILoomRepository, LoomRepository>();
+
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             if (string.IsNullOrEmpty(connectionString))
@@ -162,7 +165,72 @@ namespace LmMobileApi
                 app.UseSwaggerUI();
             }
 
-           
+            // **GEÇİCİ TEST: Loom Repository testi**
+            app.MapGet("/api/test/looms", async (ILoomRepository loomRepository) =>
+            {
+                try
+                {
+                    var result = await loomRepository.GetLoomsCurrentlyStatusAsync();
+                    return result.IsSuccess ?
+                        Results.Ok(new
+                        {
+                            success = true,
+                            count = result.Data?.Count(),
+                            looms = result.Data?.Take(3), // İlk 3 tezgah
+                            message = "Tezgah Verileri Alındı ✅"
+                        }) :
+                        Results.BadRequest(new
+                        {
+                            success = false,
+                            error = result.Error.Code,
+                            message = result.Error.Description
+                        });
+                }
+                catch (Exception ex)
+                {
+                    return Results.BadRequest(new
+                    {
+                        success = false,
+                        error = "Exception",
+                        message = ex.Message
+                    });
+                }
+            })
+            .WithName("TestLooms")
+            .WithTags("Test");
+
+            // **GEÇİCİ TEST: Tek Loom testi**
+            app.MapGet("/api/test/loom/{loomNo}", async (ILoomRepository loomRepository, string loomNo) =>
+            {
+                try
+                {
+                    var result = await loomRepository.GetLoomCurrentlyStatusAsync(loomNo);
+                    return result.IsSuccess ?
+                        Results.Ok(new
+                        {
+                            success = true,
+                            loom = result.Data,
+                            message = $"Loom {loomNo} verisi alındı! ✅"
+                        }) :
+                        Results.BadRequest(new
+                        {
+                            success = false,
+                            error = result.Error.Code,
+                            message = result.Error.Description
+                        });
+                }
+                catch (Exception ex)
+                {
+                    return Results.BadRequest(new
+                    {
+                        success = false,
+                        error = "Exception",
+                        message = ex.Message
+                    });
+                }
+            })
+            .WithName("TestSingleLoom")
+            .WithTags("Test");
             app.MapEndpoints();
 
             app.Run();
