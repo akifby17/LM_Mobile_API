@@ -9,6 +9,22 @@ public class Loom : IEquatable<Loom>
     public string WeaverName { get; private set; } = string.Empty;
     public int EventId { get; private set; }
     public int LoomSpeed { get; private set; }
+    public String HallName { get; private set; } = string.Empty;
+    public String MarkName { get; private set; } = string.Empty;
+    public String ModelName { get; private set; } = string.Empty;
+    public String GroupName { get; private set; } = string.Empty;
+    public String ClassName { get; private set; } = string.Empty;
+    public String WarpName { get; private set; } = string.Empty;
+    public String VariantNo { get; private set; } = string.Empty;
+    public String StyleName { get; private set; } = string.Empty;
+    public double WeaverEff { get; private set; }
+    public String EventDuration { get; private set; }
+    public double ProductedLength { get; private set; }
+    public double TotalLength { get; private set; }
+    public String EventNameTR { get; private set; }
+    public String OpDuration { get; private set; }
+
+
 
     private Loom() { }
 

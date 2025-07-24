@@ -7,12 +7,28 @@
       "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\looms\\infrastructure\\repositories\\loomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:looms\\infrastructure\\repositories\\loomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\options\\datamanoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:options\\datamanoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\looms\\domain\\loom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:looms\\domain\\loom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\looms\\infrastructure\\repositories\\loomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:looms\\infrastructure\\repositories\\loomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\infratructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\infratructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\operations\\presentation\\operationendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,74 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\operations\\infastructure\\operationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:operations\\infastructure\\operationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\infratructure\\repository\\refreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\infratructure\\repository\\refreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\presentation\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\presentation\\userendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\domain\\contracts\\refreshtokenresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\domain\\contracts\\refreshtokenresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\infratructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\infratructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\application\\services\\refreshtokencleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\application\\services\\refreshtokencleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\shared\\data\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:shared\\data\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\domain\\contracts\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\domain\\contracts\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\domain\\contracts\\refreshtokenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\domain\\contracts\\refreshtokenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\domain\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\domain\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\personnels\\presentation\\personnelendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:personnels\\presentation\\personnelendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\personnels\\domain\\personnel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:personnels\\domain\\personnel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\personnels\\application\\services\\personnelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:personnels\\application\\services\\personnelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\shared\\endpoints\\endpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:shared\\endpoints\\endpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\shared\\application\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:shared\\application\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:users\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\personnels\\infrastructure\\repositories\\personnelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:personnels\\infrastructure\\repositories\\personnelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -106,37 +54,87 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoomRepository.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Looms\\Infrastructure\\Repositories\\LoomRepository.cs",
-              "RelativeDocumentMoniker": "Looms\\Infrastructure\\Repositories\\LoomRepository.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Looms\\Infrastructure\\Repositories\\LoomRepository.cs*",
-              "RelativeToolTip": "Looms\\Infrastructure\\Repositories\\LoomRepository.cs*",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAwwBwAAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAowMYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T16:08:51.641Z",
+              "WhenOpened": "2025-07-24T14:23:28.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-24T14:19:38.229Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DataManOptions.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Options\\DataManOptions.cs",
+              "RelativeDocumentMoniker": "Options\\DataManOptions.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Options\\DataManOptions.cs",
+              "RelativeToolTip": "Options\\DataManOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T14:18:27.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Users\\Application\\Services\\UserService.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Application\\Services\\UserService.cs",
+              "RelativeToolTip": "Users\\Application\\Services\\UserService.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAmwH8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T07:33:41.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoomRepository.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Looms\\Infrastructure\\Repositories\\LoomRepository.cs",
+              "RelativeDocumentMoniker": "Looms\\Infrastructure\\Repositories\\LoomRepository.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Looms\\Infrastructure\\Repositories\\LoomRepository.cs",
+              "RelativeToolTip": "Looms\\Infrastructure\\Repositories\\LoomRepository.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAwwBwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T16:08:51.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Loom.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Looms\\Domain\\Loom.cs",
               "RelativeDocumentMoniker": "Looms\\Domain\\Loom.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Looms\\Domain\\Loom.cs*",
-              "RelativeToolTip": "Looms\\Domain\\Loom.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAABAAAAAAAAAA==",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Looms\\Domain\\Loom.cs",
+              "RelativeToolTip": "Looms\\Domain\\Loom.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAqwBcAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-23T16:08:25.086Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "OperationEndpoint.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Operations\\Presentation\\OperationEndpoint.cs",
               "RelativeDocumentMoniker": "Operations\\Presentation\\OperationEndpoint.cs",
@@ -144,12 +142,11 @@
               "RelativeToolTip": "Operations\\Presentation\\OperationEndpoint.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T15:20:01.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-22T15:20:01.635Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "OperationService.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Operations\\Application\\Services\\OperationService.cs",
               "RelativeDocumentMoniker": "Operations\\Application\\Services\\OperationService.cs",
@@ -161,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "OperationRepository.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Operations\\Infastructure\\OperationRepository.cs",
               "RelativeDocumentMoniker": "Operations\\Infastructure\\OperationRepository.cs",
@@ -173,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Operation.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Operations\\Domain\\Operation.cs",
               "RelativeDocumentMoniker": "Operations\\Domain\\Operation.cs",
@@ -185,220 +182,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Infratructure\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Users\\Infratructure\\Repository\\UserRepository.cs",
               "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Infratructure\\Repository\\UserRepository.cs",
               "RelativeToolTip": "Users\\Infratructure\\Repository\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-22T13:10:14.921Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAUwOgAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T13:43:05.234Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "RefreshTokenCleanUpService.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Application\\Services\\RefreshTokenCleanUpService.cs",
-              "RelativeDocumentMoniker": "Users\\Application\\Services\\RefreshTokenCleanUpService.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Application\\Services\\RefreshTokenCleanUpService.cs",
-              "RelativeToolTip": "Users\\Application\\Services\\RefreshTokenCleanUpService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T13:34:11.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RefreshTokenRepository.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Infratructure\\Repository\\RefreshTokenRepository.cs",
-              "RelativeDocumentMoniker": "Users\\Infratructure\\Repository\\RefreshTokenRepository.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Infratructure\\Repository\\RefreshTokenRepository.cs",
-              "RelativeToolTip": "Users\\Infratructure\\Repository\\RefreshTokenRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T13:11:00.211Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "RefreshTokenResponse.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Domain\\Contracts\\RefreshTokenResponse.cs",
-              "RelativeDocumentMoniker": "Users\\Domain\\Contracts\\RefreshTokenResponse.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Domain\\Contracts\\RefreshTokenResponse.cs",
-              "RelativeToolTip": "Users\\Domain\\Contracts\\RefreshTokenResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T13:09:23.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "RefreshTokenRequest.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Domain\\Contracts\\RefreshTokenRequest.cs",
-              "RelativeDocumentMoniker": "Users\\Domain\\Contracts\\RefreshTokenRequest.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Domain\\Contracts\\RefreshTokenRequest.cs",
-              "RelativeToolTip": "Users\\Domain\\Contracts\\RefreshTokenRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T13:08:52.544Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "RefreshToken.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Domain\\RefreshToken.cs",
-              "RelativeDocumentMoniker": "Users\\Domain\\RefreshToken.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Domain\\RefreshToken.cs",
-              "RelativeToolTip": "Users\\Domain\\RefreshToken.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T13:07:54.004Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "PersonnelEndpoint.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Personnels\\Presentation\\PersonnelEndpoint.cs",
-              "RelativeDocumentMoniker": "Personnels\\Presentation\\PersonnelEndpoint.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Personnels\\Presentation\\PersonnelEndpoint.cs",
-              "RelativeToolTip": "Personnels\\Presentation\\PersonnelEndpoint.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:11:39.395Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Personnel.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Personnels\\Domain\\Personnel.cs",
-              "RelativeDocumentMoniker": "Personnels\\Domain\\Personnel.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Personnels\\Domain\\Personnel.cs",
-              "RelativeToolTip": "Personnels\\Domain\\Personnel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T10:00:59.608Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Endpoint.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Shared\\Endpoints\\Endpoint.cs",
-              "RelativeDocumentMoniker": "Shared\\Endpoints\\Endpoint.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Shared\\Endpoints\\Endpoint.cs",
-              "RelativeToolTip": "Shared\\Endpoints\\Endpoint.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T17:42:54.523Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserEndpoints.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Presentation\\UserEndpoints.cs",
-              "RelativeDocumentMoniker": "Users\\Presentation\\UserEndpoints.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Presentation\\UserEndpoints.cs",
-              "RelativeToolTip": "Users\\Presentation\\UserEndpoints.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T14:24:11.734Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Users\\Application\\Services\\UserService.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Application\\Services\\UserService.cs",
-              "RelativeToolTip": "Users\\Application\\Services\\UserService.cs",
-              "ViewState": "AgIAALUAAAAAAAAAAAAwwOoAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T14:13:45.827Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "LoginResponse.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Domain\\Contracts\\LoginResponse.cs",
-              "RelativeDocumentMoniker": "Users\\Domain\\Contracts\\LoginResponse.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Domain\\Contracts\\LoginResponse.cs",
-              "RelativeToolTip": "Users\\Domain\\Contracts\\LoginResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T13:35:33.247Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Shared\\Data\\IRepository.cs",
-              "RelativeDocumentMoniker": "Shared\\Data\\IRepository.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Shared\\Data\\IRepository.cs",
-              "RelativeToolTip": "Shared\\Data\\IRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-22T13:36:39.424Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "PersonnelService.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Personnels\\Application\\Services\\PersonnelService.cs",
-              "RelativeDocumentMoniker": "Personnels\\Application\\Services\\PersonnelService.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Personnels\\Application\\Services\\PersonnelService.cs",
-              "RelativeToolTip": "Personnels\\Application\\Services\\PersonnelService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:10:26.067Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "PersonnelRepository.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Personnels\\Infrastructure\\Repositories\\PersonnelRepository.cs",
-              "RelativeDocumentMoniker": "Personnels\\Infrastructure\\Repositories\\PersonnelRepository.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Personnels\\Infrastructure\\Repositories\\PersonnelRepository.cs",
-              "RelativeToolTip": "Personnels\\Infrastructure\\Repositories\\PersonnelRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:11:02.544Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ApplicationService.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Shared\\Application\\ApplicationService.cs",
-              "RelativeDocumentMoniker": "Shared\\Application\\ApplicationService.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Shared\\Application\\ApplicationService.cs",
-              "RelativeToolTip": "Shared\\Application\\ApplicationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T17:42:46.641Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Domain\\User.cs",
-              "RelativeDocumentMoniker": "Users\\Domain\\User.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Users\\Domain\\User.cs",
-              "RelativeToolTip": "Users\\Domain\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T17:42:31.139Z"
             }
           ]
         }

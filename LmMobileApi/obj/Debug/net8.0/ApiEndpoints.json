@@ -46,6 +46,26 @@
   {
     "ContainingType": "LmMobileApi.Program\u002B\u003C\u003Ec",
     "Method": "\u003CMain\u003Eb__0_6",
+    "RelativePath": "api/test/dataman",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Test"
+    ],
+    "EndpointName": "TestDataManApi"
+  },
+  {
+    "ContainingType": "LmMobileApi.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__0_8",
     "RelativePath": "api/test/loom/{loomNo}",
     "HttpMethod": "GET",
     "IsController": false,
@@ -71,7 +91,7 @@
   },
   {
     "ContainingType": "LmMobileApi.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__0_5",
+    "Method": "\u003CMain\u003Eb__0_7",
     "RelativePath": "api/test/looms",
     "HttpMethod": "GET",
     "IsController": false,

@@ -1,0 +1,165 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\LM API\\DataManApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|d:\\lm api\\datamanapi\\datamanapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|solutionrelative:datamanapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|d:\\lm api\\datamanapi\\datamanapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|solutionrelative:datamanapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|d:\\lm api\\datamanapi\\datamanapi\\services\\tcpclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|solutionrelative:datamanapi\\services\\tcpclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|d:\\lm api\\datamanapi\\datamanapi\\repositories\\loommonitoringrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|solutionrelative:datamanapi\\repositories\\loommonitoringrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|d:\\lm api\\datamanapi\\datamanapi\\controllers\\datamancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|solutionrelative:datamanapi\\controllers\\datamancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|d:\\lm api\\datamanapi\\datamanapi\\validators\\changeworkordervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|solutionrelative:datamanapi\\validators\\changeworkordervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|d:\\lm api\\datamanapi\\datamanapi\\contracts\\changeworkorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|solutionrelative:datamanapi\\contracts\\changeworkorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|d:\\lm api\\datamanapi\\datamanapi\\contracts\\styleworkorderstartstoppause.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|solutionrelative:datamanapi\\contracts\\styleworkorderstartstoppause.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|d:\\lm api\\datamanapi\\datamanapi\\contracts\\changeweaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA576DA7-D851-4858-A483-FAB540DE0208}|DataManApi\\DataManApi.csproj|solutionrelative:datamanapi\\contracts\\changeweaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\LM API\\DataManApi\\DataManApi\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "DataManApi\\appsettings.Development.json",
+              "ToolTip": "D:\\LM API\\DataManApi\\DataManApi\\appsettings.Development.json",
+              "RelativeToolTip": "DataManApi\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-17T14:09:45.786Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoomMonitoringRepository.cs",
+              "DocumentMoniker": "D:\\LM API\\DataManApi\\DataManApi\\Repositories\\LoomMonitoringRepository.cs",
+              "RelativeDocumentMoniker": "DataManApi\\Repositories\\LoomMonitoringRepository.cs",
+              "ToolTip": "D:\\LM API\\DataManApi\\DataManApi\\Repositories\\LoomMonitoringRepository.cs",
+              "RelativeToolTip": "DataManApi\\Repositories\\LoomMonitoringRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T12:02:46.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StyleWorkOrderStartStopPause.cs",
+              "DocumentMoniker": "D:\\LM API\\DataManApi\\DataManApi\\Contracts\\StyleWorkOrderStartStopPause.cs",
+              "RelativeDocumentMoniker": "DataManApi\\Contracts\\StyleWorkOrderStartStopPause.cs",
+              "ToolTip": "D:\\LM API\\DataManApi\\DataManApi\\Contracts\\StyleWorkOrderStartStopPause.cs",
+              "RelativeToolTip": "DataManApi\\Contracts\\StyleWorkOrderStartStopPause.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-30T20:48:29.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TcpClientService.cs",
+              "DocumentMoniker": "D:\\LM API\\DataManApi\\DataManApi\\Services\\TcpClientService.cs",
+              "RelativeDocumentMoniker": "DataManApi\\Services\\TcpClientService.cs",
+              "ToolTip": "D:\\LM API\\DataManApi\\DataManApi\\Services\\TcpClientService.cs",
+              "RelativeToolTip": "DataManApi\\Services\\TcpClientService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-30T19:54:32.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataManController.cs",
+              "DocumentMoniker": "D:\\LM API\\DataManApi\\DataManApi\\Controllers\\DataManController.cs",
+              "RelativeDocumentMoniker": "DataManApi\\Controllers\\DataManController.cs",
+              "ToolTip": "D:\\LM API\\DataManApi\\DataManApi\\Controllers\\DataManController.cs",
+              "RelativeToolTip": "DataManApi\\Controllers\\DataManController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-30T13:04:13.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\LM API\\DataManApi\\DataManApi\\appsettings.json",
+              "RelativeDocumentMoniker": "DataManApi\\appsettings.json",
+              "ToolTip": "D:\\LM API\\DataManApi\\DataManApi\\appsettings.json",
+              "RelativeToolTip": "DataManApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-18T09:46:42.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ChangeWeaver.cs",
+              "DocumentMoniker": "D:\\LM API\\DataManApi\\DataManApi\\Contracts\\ChangeWeaver.cs",
+              "RelativeDocumentMoniker": "DataManApi\\Contracts\\ChangeWeaver.cs",
+              "ToolTip": "D:\\LM API\\DataManApi\\DataManApi\\Contracts\\ChangeWeaver.cs",
+              "RelativeToolTip": "DataManApi\\Contracts\\ChangeWeaver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T11:56:57.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ChangeWorkOrderValidator.cs",
+              "DocumentMoniker": "D:\\LM API\\DataManApi\\DataManApi\\Validators\\ChangeWorkOrderValidator.cs",
+              "RelativeDocumentMoniker": "DataManApi\\Validators\\ChangeWorkOrderValidator.cs",
+              "ToolTip": "D:\\LM API\\DataManApi\\DataManApi\\Validators\\ChangeWorkOrderValidator.cs",
+              "RelativeToolTip": "DataManApi\\Validators\\ChangeWorkOrderValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T11:56:15.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ChangeWorkOrder.cs",
+              "DocumentMoniker": "D:\\LM API\\DataManApi\\DataManApi\\Contracts\\ChangeWorkOrder.cs",
+              "RelativeDocumentMoniker": "DataManApi\\Contracts\\ChangeWorkOrder.cs",
+              "ToolTip": "D:\\LM API\\DataManApi\\DataManApi\\Contracts\\ChangeWorkOrder.cs",
+              "RelativeToolTip": "DataManApi\\Contracts\\ChangeWorkOrder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T11:56:11.043Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

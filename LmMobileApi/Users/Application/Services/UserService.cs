@@ -128,7 +128,7 @@ public class UserService(IUserRepository userRepository, IRefreshTokenRepository
             }
 
             // Kullanıcıyı bul
-            var userResult = await userRepository.GetUserAsync(new User(refreshToken.UserId, ""), cancellationToken);
+            var userResult = await userRepository.GetUserByUsernameAsync(refreshToken.UserId, cancellationToken);
             if (userResult.IsFailure || userResult.Data is null)
             {
                 unitOfWork.Rollback();

@@ -56,6 +56,15 @@ namespace LmMobileApi
                     }
                 });
             });
+            // **YENİ: Options pattern**
+            builder.Services.Configure<DataManApiOptions>(builder.Configuration.GetSection("DataManApiOptions"));
+
+            // **YENİ: HttpClient for DataManApi**
+            builder.Services.AddHttpClient("DataManApi", client =>
+            {
+                var dataManApiOptions = builder.Configuration.GetSection("DataManApiOptions").Get<DataManApiOptions>();
+                client.BaseAddress = new Uri(dataManApiOptions!.BaseUrl);
+            });
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -164,6 +173,30 @@ namespace LmMobileApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.MapPost("/api/test/dataman", async (IHttpClientFactory httpClientFactory) =>
+            {
+                try
+                {
+                    var httpClient = httpClientFactory.CreateClient("DataManApi");
+
+                    return Results.Ok(new
+                    {
+                        success = true,
+                        baseUrl = httpClient.BaseAddress?.ToString(),
+                        message = "DataMan API Başarıyla Eklendi! ✅"
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return Results.BadRequest(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            })
+            .WithName("TestDataManApi")
+            .WithTags("Test");
 
             // **GEÇİCİ TEST: Loom Repository testi**
             app.MapGet("/api/test/looms", async (ILoomRepository loomRepository) =>

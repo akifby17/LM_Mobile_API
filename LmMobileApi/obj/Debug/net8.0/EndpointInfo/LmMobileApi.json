@@ -51,6 +51,19 @@
         }
       }
     },
+    "/api/test/dataman": {
+      "post": {
+        "tags": [
+          "Test"
+        ],
+        "operationId": "TestDataManApi",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/test/looms": {
       "get": {
         "tags": [
