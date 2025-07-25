@@ -1,8 +1,9 @@
 ﻿using DbUp;
+using LmMobileApi.Dashboard.Application.Services;
+using LmMobileApi.Dashboard.Infrastructure.Repositories;
+using LmMobileApi.Looms.Application.Services;
 using LmMobileApi.Looms.Infrastructure.Repositories;
 using LmMobileApi.Operations.Application.Services;
-using LmMobileApi.Operations.Application.Services;
-using LmMobileApi.Operations.Infrastructure;
 using LmMobileApi.Operations.Infrastructure;
 using LmMobileApi.Personnels.Application.Services;
 using LmMobileApi.Personnels.Infrastructure.Repositories;
@@ -154,8 +155,10 @@ namespace LmMobileApi
             
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
-
-            
+            builder.Services.AddScoped<ILoomRepository, LoomRepository>();
+            builder.Services.AddScoped<ILoomService, LoomService>();
+            builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
+            builder.Services.AddScoped<IDashboardService, DashboardService>();
             builder.Services.AddEndpoints(typeof(Program).Assembly);
 
             var app = builder.Build();
@@ -173,97 +176,6 @@ namespace LmMobileApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.MapPost("/api/test/dataman", async (IHttpClientFactory httpClientFactory) =>
-            {
-                try
-                {
-                    var httpClient = httpClientFactory.CreateClient("DataManApi");
-
-                    return Results.Ok(new
-                    {
-                        success = true,
-                        baseUrl = httpClient.BaseAddress?.ToString(),
-                        message = "DataMan API Başarıyla Eklendi! ✅"
-                    });
-                }
-                catch (Exception ex)
-                {
-                    return Results.BadRequest(new
-                    {
-                        success = false,
-                        error = ex.Message
-                    });
-                }
-            })
-            .WithName("TestDataManApi")
-            .WithTags("Test");
-
-            // **GEÇİCİ TEST: Loom Repository testi**
-            app.MapGet("/api/test/looms", async (ILoomRepository loomRepository) =>
-            {
-                try
-                {
-                    var result = await loomRepository.GetLoomsCurrentlyStatusAsync();
-                    return result.IsSuccess ?
-                        Results.Ok(new
-                        {
-                            success = true,
-                            count = result.Data?.Count(),
-                            looms = result.Data?.Take(3), // İlk 3 tezgah
-                            message = "Tezgah Verileri Alındı ✅"
-                        }) :
-                        Results.BadRequest(new
-                        {
-                            success = false,
-                            error = result.Error.Code,
-                            message = result.Error.Description
-                        });
-                }
-                catch (Exception ex)
-                {
-                    return Results.BadRequest(new
-                    {
-                        success = false,
-                        error = "Exception",
-                        message = ex.Message
-                    });
-                }
-            })
-            .WithName("TestLooms")
-            .WithTags("Test");
-
-            // **GEÇİCİ TEST: Tek Loom testi**
-            app.MapGet("/api/test/loom/{loomNo}", async (ILoomRepository loomRepository, string loomNo) =>
-            {
-                try
-                {
-                    var result = await loomRepository.GetLoomCurrentlyStatusAsync(loomNo);
-                    return result.IsSuccess ?
-                        Results.Ok(new
-                        {
-                            success = true,
-                            loom = result.Data,
-                            message = $"Loom {loomNo} verisi alındı! ✅"
-                        }) :
-                        Results.BadRequest(new
-                        {
-                            success = false,
-                            error = result.Error.Code,
-                            message = result.Error.Description
-                        });
-                }
-                catch (Exception ex)
-                {
-                    return Results.BadRequest(new
-                    {
-                        success = false,
-                        error = "Exception",
-                        message = ex.Message
-                    });
-                }
-            })
-            .WithName("TestSingleLoom")
-            .WithTags("Test");
             app.MapEndpoints();
 
             app.Run();
