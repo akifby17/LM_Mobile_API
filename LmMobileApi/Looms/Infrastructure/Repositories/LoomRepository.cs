@@ -1,4 +1,4 @@
-﻿using LmMobileApi.Looms.Domain;
+using LmMobileApi.Looms.Domain;
 using LmMobileApi.Shared.Data;
 using LmMobileApi.Shared.Results;
 

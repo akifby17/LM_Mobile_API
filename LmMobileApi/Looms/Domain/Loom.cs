@@ -1,4 +1,4 @@
-﻿namespace LmMobileApi.Looms.Domain;
+namespace LmMobileApi.Looms.Domain;
 
 public class Loom : IEquatable<Loom>
 {

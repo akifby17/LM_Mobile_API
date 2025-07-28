@@ -1,4 +1,4 @@
-﻿using LmMobileApi.DataManContracts;
+using LmMobileApi.DataManContracts;
 using LmMobileApi.Looms.Domain;
 using LmMobileApi.Looms.Infrastructure.Repositories;
 using LmMobileApi.Shared.Application;
