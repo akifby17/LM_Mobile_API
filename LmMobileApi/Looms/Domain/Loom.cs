@@ -24,8 +24,6 @@ public class Loom : IEquatable<Loom>
     public String EventNameTR { get; private set; }
     public String OpDuration { get; private set; }
 
-
-
     private Loom() { }
 
     public override bool Equals(object? obj)

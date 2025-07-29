@@ -1,6 +1,7 @@
 using Dapper;
 using LmMobileApi.Looms.Domain;
 using LmMobileApi.SqlDependencies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
@@ -12,37 +13,7 @@ using System.Threading.Tasks;
 
 namespace LmMobileApi.Hubs
 {
-    /// <summary>
-    /// Tezgah verisini filtrelemek için kullanılacak model.
-    /// </summary>
-    public class LoomFilter
-    {
-        public int? EventId { get; set; }
-        public int? MinSpeed { get; set; }
-        public int? MaxSpeed { get; set; }
-        public string? StyleWorkOrderNo { get; set; }
-        public string? HallName { get; set; }
-
-        /// <summary>
-        /// Filter'ın eşitlik kontrolü için
-        /// </summary>
-        public override bool Equals(object? obj)
-        {
-            if (obj is not LoomFilter other) return false;
-
-            return EventId == other.EventId &&
-                   MinSpeed == other.MinSpeed &&
-                   MaxSpeed == other.MaxSpeed &&
-                   StyleWorkOrderNo == other.StyleWorkOrderNo &&
-                   HallName == other.HallName;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(EventId, MinSpeed, MaxSpeed, StyleWorkOrderNo, HallName);
-        }
-    }
-
+    [Authorize]
     public class LoomsCurrentlyStatusHub : Hub
     {
         // Her client için dependency örneklerini saklamak üzere
@@ -70,10 +41,7 @@ namespace LmMobileApi.Hubs
                 ?? throw new ArgumentNullException(nameof(depFactory));
         }
 
-        /// <summary>
-        /// Client, istediği filtreyi vererek bu metodu çağırır.
-        /// Aynı filtreye sahipse yeniden oluşturulmaz.
-        /// </summary>
+
         public async Task Subscribe(LoomFilter? filter)
         {
             filter ??= new LoomFilter();
@@ -152,11 +120,47 @@ namespace LmMobileApi.Hubs
                 var (query, parameters) = BuildFilteredQuery(filter);
                 var looms = connection.Query<Loom>(query, parameters).AsList();
 
-                // Caller'a filtrelenmiş verileri gönder
-                await Clients.Caller.SendAsync("InitialLoomsData", looms);
+                // --- Burada filtre listesini oluşturuyoruz ---
+                var filters = new List<FilterOption>
+        {
+            new FilterOption {
+                Key = "hallName",
+                Values = looms.Select(x => x.HallName).Distinct().OrderBy(x => x)
+            },
+            new FilterOption {
+                Key = "markName",
+                Values = looms.Select(x => x.MarkName).Distinct().OrderBy(x => x)
+            },
+            new FilterOption {
+                Key = "groupName",
+                Values = looms.Select(x => x.GroupName).Distinct().OrderBy(x => x)
+            },
+            new FilterOption {
+                Key = "modelName",
+                Values = looms.Select(x => x.ModelName).Distinct().OrderBy(x => x)
+            },
+            new FilterOption {
+                Key = "className",
+                Values = looms.Select(x => x.ClassName).Distinct().OrderBy(x => x)
+            },
+            new FilterOption {
+                Key = "EventNameTR",
+                Values = looms.Select(x => x.EventNameTR.ToString()).Distinct().OrderBy(x => x)
+            }
+
+        };
+
+                // --- Wrapper objemizi hazırlayıp tek seferde gönderiyoruz ---
+                var payload = new LoomsWithFilters
+                {
+                    looms = looms,
+                    filters = filters
+                };
+
+                await Clients.Caller.SendAsync("InitialLoomsData", payload);
 
                 _logger.LogInformation(
-                    "Sent {Count} initial filtered looms to ConnectionId={ConnId}",
+                    "Sent {Count} initial filtered looms with filters to ConnectionId={ConnId}",
                     looms.Count, Context.ConnectionId
                 );
             }
@@ -167,6 +171,7 @@ namespace LmMobileApi.Hubs
             }
         }
 
+
         /// <summary>
         /// Filter'a göre SQL sorgusu ve parametrelerini oluşturur
         /// </summary>
@@ -175,30 +180,35 @@ namespace LmMobileApi.Hubs
             var whereClauses = new List<string>();
             var parameters = new DynamicParameters();
 
-            if (filter.EventId.HasValue)
+            if (!string.IsNullOrEmpty(filter.EventNameTR))
             {
-                whereClauses.Add("EventID = @EventId");
-                parameters.Add("@EventId", filter.EventId.Value);
+                whereClauses.Add("EventID = @EventNameTR");
+                parameters.Add("@EventNameTR", filter.EventNameTR);
             }
-            if (filter.MinSpeed.HasValue)
+            if (!string.IsNullOrEmpty(filter.ModelName))
             {
-                whereClauses.Add("LoomSpeed >= @MinSpeed");
-                parameters.Add("@MinSpeed", filter.MinSpeed.Value);
+                whereClauses.Add("ModelName =@ModelName");
+                parameters.Add("@ModelName", filter.ModelName);
             }
-            if (filter.MaxSpeed.HasValue)
+            if (!string.IsNullOrEmpty(filter.MarkName))
             {
-                whereClauses.Add("LoomSpeed <= @MaxSpeed");
-                parameters.Add("@MaxSpeed", filter.MaxSpeed.Value);
+                whereClauses.Add("MarkName = @MarkName");
+                parameters.Add("@MarkName", filter.MarkName);
             }
-            if (!string.IsNullOrEmpty(filter.StyleWorkOrderNo))
+            if (!string.IsNullOrEmpty(filter.GroupName))
             {
-                whereClauses.Add("StyleWorkOrderNo = @StyleNo");
-                parameters.Add("@StyleNo", filter.StyleWorkOrderNo);
+                whereClauses.Add("GroupName = @GroupName");
+                parameters.Add("@GroupName", filter.GroupName);
             }
             if (!string.IsNullOrEmpty(filter.HallName))
             {
                 whereClauses.Add("HallName = @HallName");
                 parameters.Add("@HallName", filter.HallName);
+            }
+            if (!string.IsNullOrEmpty(filter.ClassName))
+            {
+                whereClauses.Add("ClassName = @ClassName");
+                parameters.Add("@ClassName", filter.ClassName);
             }
 
             var query = new StringBuilder("SELECT * FROM tvw_mobile_Looms_CurrentlyStatus");

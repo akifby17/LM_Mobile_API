@@ -11,6 +11,7 @@ namespace LmMobileApi.SqlDependencies;
 
 public class LoomCurrentlyStatusDependency : IDisposable
 {
+    //son
     private readonly string _connectionString;
     private readonly IHubContext<LoomsCurrentlyStatusHub> _hubContext;
     private readonly ILogger<LoomCurrentlyStatusDependency> _logger;
@@ -57,7 +58,44 @@ public class LoomCurrentlyStatusDependency : IDisposable
         // Filtreleme sorgusunu önceden hazırla
         PrepareFilteredQuery();
     }
+    /*
+     
+     var whereClauses = new List<string>();
+            var parameters = new DynamicParameters();
 
+            if (!string.IsNullOrEmpty(filter.EventNameTR))
+            {
+                whereClauses.Add("EventID = @EventNameTR");
+                parameters.Add("@EventNameTR", filter.EventNameTR);
+            }
+            if (!string.IsNullOrEmpty(filter.ModelName))
+            {
+                whereClauses.Add("ModelName =@ModelName");
+                parameters.Add("@ModelName", filter.ModelName);
+            }
+            if (!string.IsNullOrEmpty(filter.MarkName))
+            {
+                whereClauses.Add("MarkName = @MarkName");
+                parameters.Add("@MarkName", filter.MarkName);
+            }
+            if (!string.IsNullOrEmpty(filter.GroupName))
+            {
+                whereClauses.Add("GroupName = @GroupName");
+                parameters.Add("@GroupName", filter.GroupName);
+            }
+            if (!string.IsNullOrEmpty(filter.HallName))
+            {
+                whereClauses.Add("HallName = @HallName");
+                parameters.Add("@HallName", filter.HallName);
+            }
+            if (!string.IsNullOrEmpty(filter.ClassName))
+            {
+                whereClauses.Add("ClassName = @ClassName");
+                parameters.Add("@ClassName", filter.ClassName);
+            }
+     
+     
+     */
     /// <summary>
     /// Filter'a göre SQL sorgusu ve parametrelerini hazırlar
     /// </summary>
@@ -66,28 +104,34 @@ public class LoomCurrentlyStatusDependency : IDisposable
         var whereClauses = new List<string>();
         _queryParameters = new DynamicParameters();
 
-        if (_filter.EventId.HasValue)
+        if (!string.IsNullOrEmpty(_filter.EventNameTR))
         {
-            whereClauses.Add("EventID = @EventId");
-            _queryParameters.Add("@EventId", _filter.EventId.Value);
+            whereClauses.Add("EventID = @EventNameTR");
+            _queryParameters.Add("@EventNameTR", _filter.EventNameTR);
         }
 
-        if (_filter.MinSpeed.HasValue)
+        if (!string.IsNullOrEmpty(_filter.ModelName))
         {
-            whereClauses.Add("LoomSpeed >= @MinSpeed");
-            _queryParameters.Add("@MinSpeed", _filter.MinSpeed.Value);
+            whereClauses.Add("ModelName =@ModelName");
+            _queryParameters.Add("@ModelName", _filter.ModelName);
         }
 
-        if (_filter.MaxSpeed.HasValue)
+        if (!string.IsNullOrEmpty(_filter.MarkName))
         {
-            whereClauses.Add("LoomSpeed <= @MaxSpeed");
-            _queryParameters.Add("@MaxSpeed", _filter.MaxSpeed.Value);
+            whereClauses.Add("MarkName = @MarkName");
+            _queryParameters.Add("@MarkName", _filter.MarkName);
         }
 
-        if (!string.IsNullOrEmpty(_filter.StyleWorkOrderNo))
+        if (!string.IsNullOrEmpty(_filter.GroupName))
         {
-            whereClauses.Add("StyleWorkOrderNo = @StyleNo");
-            _queryParameters.Add("@StyleNo", _filter.StyleWorkOrderNo);
+            whereClauses.Add("GroupName = @GroupName");
+            _queryParameters.Add("@GroupName", _filter.GroupName);
+        }
+
+        if (!string.IsNullOrEmpty(_filter.ClassName))
+        {
+            whereClauses.Add("ClassName = @ClassName");
+            _queryParameters.Add("@ClassName", _filter.ClassName);
         }
 
         // HallName filtresi eklendi (eksikti)
@@ -167,14 +211,41 @@ public class LoomCurrentlyStatusDependency : IDisposable
     {
         var whereClauses = new List<string>();
 
-        if (_filter.EventId.HasValue)
-            whereClauses.Add("EventID = @EventId");
-        if (_filter.MinSpeed.HasValue)
-            whereClauses.Add("LoomSpeed >= @MinSpeed");
-        if (_filter.MaxSpeed.HasValue)
-            whereClauses.Add("LoomSpeed <= @MaxSpeed");
-        if (!string.IsNullOrEmpty(_filter.StyleWorkOrderNo))
-            whereClauses.Add("StyleWorkOrderNo = @StyleNo");
+        if (!string.IsNullOrEmpty(_filter.EventNameTR))
+        {
+            whereClauses.Add("EventID = @EventNameTR");
+
+        }
+
+        if (!string.IsNullOrEmpty(_filter.ModelName))
+        {
+            whereClauses.Add("ModelName =@ModelName");
+
+        }
+
+        if (!string.IsNullOrEmpty(_filter.MarkName))
+        {
+            whereClauses.Add("MarkName = @MarkName");
+
+        }
+
+        if (!string.IsNullOrEmpty(_filter.GroupName))
+        {
+            whereClauses.Add("GroupName = @GroupName");
+
+        }
+
+        if (!string.IsNullOrEmpty(_filter.ClassName))
+        {
+            whereClauses.Add("ClassName = @ClassName");
+
+        }
+
+        // HallName filtresi eklendi (eksikti)
+        if (!string.IsNullOrEmpty(_filter.HallName))
+        {
+            whereClauses.Add("HallName = @HallName");
+        }
 
         var query = new StringBuilder(
             "SELECT LoomNo, EventID, LoomSpeed, PID, WID, OperationCode, ShiftNo, ShiftPickCounter, StyleWorkOrderNo, WarpWorkOrderNo " +
@@ -263,16 +334,15 @@ public class LoomCurrentlyStatusDependency : IDisposable
         {
             if (_connection?.State != ConnectionState.Open)
             {
-                _logger.LogWarning("Database connection is closed, reconnecting...");
                 _connection?.Close();
                 _connection = new SqlConnection(_connectionString);
                 await _connection.OpenAsync();
             }
 
-            // Sadece filtrelenmiş veriyi çek
+            // Yeni filtrelenmiş tüm looms
             var currentFilteredLooms = _connection.Query<Loom>(_filteredQuery, _queryParameters).AsList();
 
-            // Değişiklikleri algıla
+            // Mevcut listeyle karşılaştırıp değişiklikleri tespit et
             var changes = DetectChanges(_looms, currentFilteredLooms);
 
             if (changes.HasChanges)
@@ -281,22 +351,56 @@ public class LoomCurrentlyStatusDependency : IDisposable
                     "Detected changes for connection {ConnectionId}: {AddedCount} added, {UpdatedCount} updated, {RemovedCount} removed",
                     _connectionId, changes.Added.Count, changes.Updated.Count, changes.Removed.Count);
 
-                // Sadece belirli client'a gönder (eğer connectionId varsa)
+                // —— Filtre listesini tekrar oluşturuyoruz ——
+                var filters = new List<FilterOption>
+            {
+                new FilterOption {
+                    Key = "hallName",
+                    Values = currentFilteredLooms.Select(x => x.HallName).Distinct().OrderBy(x => x)
+                },
+                new FilterOption {
+                    Key = "markName",
+                    Values = currentFilteredLooms.Select(x => x.MarkName).Distinct().OrderBy(x => x)
+                },
+                new FilterOption {
+                    Key = "groupName",
+                    Values = currentFilteredLooms.Select(x => x.GroupName).Distinct().OrderBy(x => x)
+                },
+                new FilterOption {
+                    Key = "modelName",
+                    Values = currentFilteredLooms.Select(x => x.ModelName).Distinct().OrderBy(x => x)
+                }
+            };
+
+                // Hedef client
                 var targetClient = string.IsNullOrEmpty(_connectionId)
                     ? _hubContext.Clients.All
                     : _hubContext.Clients.Client(_connectionId);
 
-                // Farklı değişiklik türleri için ayrı mesajlar gönder
+                // Her bir event'i hem ilgili loom’ları hem de filtreleri içerecek şekilde paketleyelim:
                 if (changes.Added.Any())
-                    await targetClient.SendAsync("LoomsAdded", changes.Added);
+                    await targetClient.SendAsync("LoomsAdded", new
+                    {
+                        looms = changes.Added,
+                        filters = filters
+                    });
 
                 if (changes.Updated.Any())
-                    await targetClient.SendAsync("LoomsUpdated", changes.Updated);
+                    await targetClient.SendAsync("LoomsUpdated", new
+                    {
+                        looms = changes.Updated,
+                        filters = filters
+                    });
 
                 if (changes.Removed.Any())
-                    await targetClient.SendAsync("LoomsRemoved", changes.Removed.Select(l => l.LoomNo).ToList());
+                    await targetClient.SendAsync("LoomsRemoved", new
+                    {
+                        looms = changes.Removed.Select(l => l.LoomNo).ToList(),
+                        filters = filters
+                    });
             }
 
+            // Yeni durumu bir sonraki tetikleme için sakla
             _looms = currentFilteredLooms;
         }
         catch (Exception ex)
@@ -304,6 +408,7 @@ public class LoomCurrentlyStatusDependency : IDisposable
             _logger.LogError(ex, "Error occurred while handling filtered data change");
         }
     }
+
 
     /// <summary>
     /// İki liste arasındaki değişiklikleri tespit eder
