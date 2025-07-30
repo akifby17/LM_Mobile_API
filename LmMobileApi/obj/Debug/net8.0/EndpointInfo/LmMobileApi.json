@@ -48,6 +48,109 @@
         }
       }
     },
+    "/api/looms/filters": {
+      "get": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "GetLoomFilters",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilterOption"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/filtered": {
+      "post": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "GetFilteredLooms",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoomFilter"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Loom"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/with-filters": {
+      "post": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "GetLoomsWithFilters",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoomFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoomsWithFilters"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "GetAllLoomsWithFilters",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoomsWithFilters"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/looms/changeWeaver": {
       "post": {
         "tags": [
@@ -445,6 +548,23 @@
         },
         "additionalProperties": false
       },
+      "FilterOption": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginResponse": {
         "type": "object",
         "properties": {
@@ -476,108 +596,137 @@
         "properties": {
           "loomNo": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "efficiency": {
             "type": "number",
-            "format": "double",
-            "readOnly": true
+            "format": "double"
           },
           "operationName": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "operatorName": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "weaverName": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "eventId": {
             "type": "integer",
-            "format": "int32",
-            "readOnly": true
+            "format": "int32"
           },
           "loomSpeed": {
             "type": "integer",
-            "format": "int32",
-            "readOnly": true
+            "format": "int32"
           },
           "hallName": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "markName": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "modelName": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "groupName": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "className": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "warpName": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "variantNo": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "styleName": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "weaverEff": {
             "type": "number",
-            "format": "double",
-            "readOnly": true
+            "format": "double"
           },
           "eventDuration": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "productedLength": {
             "type": "number",
-            "format": "double",
-            "readOnly": true
+            "format": "double"
           },
           "totalLength": {
             "type": "number",
-            "format": "double",
-            "readOnly": true
+            "format": "double"
           },
           "eventNameTR": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "opDuration": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoomFilter": {
+        "type": "object",
+        "properties": {
+          "eventNameTR": {
+            "type": "string",
+            "nullable": true
+          },
+          "modelName": {
+            "type": "string",
+            "nullable": true
+          },
+          "markName": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "hallName": {
+            "type": "string",
+            "nullable": true
+          },
+          "className": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoomsWithFilters": {
+        "type": "object",
+        "properties": {
+          "looms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Loom"
+            },
+            "nullable": true
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterOption"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

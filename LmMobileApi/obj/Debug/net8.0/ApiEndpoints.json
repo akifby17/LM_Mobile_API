@@ -23,7 +23,7 @@
   },
   {
     "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapEndpoint\u003Eb__0_1",
+    "Method": "\u003CMapEndpoint\u003Eb__0_5",
     "RelativePath": "api/looms/changeWeaver",
     "HttpMethod": "POST",
     "IsController": false,
@@ -51,6 +51,56 @@
   },
   {
     "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__0_2",
+    "RelativePath": "api/looms/filtered",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filter",
+        "Type": "LmMobileApi.Looms.Domain.LoomFilter",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.ICollection\u00601[[LmMobileApi.Looms.Domain.Loom, LmMobileApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Looms"
+    ],
+    "EndpointName": "GetFilteredLooms"
+  },
+  {
+    "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__0_1",
+    "RelativePath": "api/looms/filters",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.ICollection\u00601[[LmMobileApi.Looms.Domain.FilterOption, LmMobileApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Looms"
+    ],
+    "EndpointName": "GetLoomFilters"
+  },
+  {
+    "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
     "Method": "\u003CMapEndpoint\u003Eb__0_0",
     "RelativePath": "api/looms/monitoring",
     "HttpMethod": "GET",
@@ -73,7 +123,7 @@
   },
   {
     "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapEndpoint\u003Eb__0_2",
+    "Method": "\u003CMapEndpoint\u003Eb__0_6",
     "RelativePath": "api/looms/operationStartStop",
     "HttpMethod": "POST",
     "IsController": false,
@@ -101,7 +151,7 @@
   },
   {
     "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapEndpoint\u003Eb__0_3",
+    "Method": "\u003CMapEndpoint\u003Eb__0_7",
     "RelativePath": "api/looms/pieceCutting",
     "HttpMethod": "POST",
     "IsController": false,
@@ -129,7 +179,7 @@
   },
   {
     "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapEndpoint\u003Eb__0_4",
+    "Method": "\u003CMapEndpoint\u003Eb__0_8",
     "RelativePath": "api/looms/styleWorkOrderStartStopPause",
     "HttpMethod": "POST",
     "IsController": false,
@@ -157,7 +207,7 @@
   },
   {
     "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapEndpoint\u003Eb__0_6",
+    "Method": "\u003CMapEndpoint\u003Eb__0_10",
     "RelativePath": "api/looms/warpWorkOrder23StartStopPause",
     "HttpMethod": "POST",
     "IsController": false,
@@ -185,7 +235,7 @@
   },
   {
     "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
-    "Method": "\u003CMapEndpoint\u003Eb__0_5",
+    "Method": "\u003CMapEndpoint\u003Eb__0_9",
     "RelativePath": "api/looms/warpWorkOrderStartStopPause",
     "HttpMethod": "POST",
     "IsController": false,
@@ -210,6 +260,56 @@
       "Looms"
     ],
     "EndpointName": "WarpWorkOrderStartStopPause"
+  },
+  {
+    "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__0_3",
+    "RelativePath": "api/looms/with-filters",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filter",
+        "Type": "LmMobileApi.Looms.Domain.LoomFilter",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LmMobileApi.Looms.Domain.LoomsWithFilters",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Looms"
+    ],
+    "EndpointName": "GetLoomsWithFilters"
+  },
+  {
+    "ContainingType": "LmMobileApi.Looms.Presentation.LoomEndpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndpoint\u003Eb__0_4",
+    "RelativePath": "api/looms/with-filters",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "LmMobileApi.Looms.Domain.LoomsWithFilters",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Looms"
+    ],
+    "EndpointName": "GetAllLoomsWithFilters"
   },
   {
     "ContainingType": "LmMobileApi.Operations.Presentation.OperationEndpoints\u002B\u003C\u003Ec",

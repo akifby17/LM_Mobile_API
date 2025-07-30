@@ -9,6 +9,9 @@ namespace LmMobileApi.Looms.Application.Services;
 public interface ILoomService
 {
     Task<Result<IEnumerable<Loom>>> GetLoomMonitoringAsync(CancellationToken cancellationToken = default);
+    Task<Result<IEnumerable<Loom>>> GetFilteredLoomsAsync(LoomFilter filter, CancellationToken cancellationToken = default);
+    Task<Result<LoomsWithFilters>> GetLoomsWithFiltersAsync(LoomFilter? filter = null, CancellationToken cancellationToken = default);
+    Task<Result<IEnumerable<FilterOption>>> GetFilterOptionsAsync(CancellationToken cancellationToken = default);
     Task<Result> ChangeWeaverAsync(ChangeWeaver changeWeaver, CancellationToken cancellationToken = default);
     Task<Result> OperationStartStopAsync(OperationStartStop operationStartStop, CancellationToken cancellationToken = default);
     Task<Result> PieceCuttingAsync(PieceCutting pieceCutting, CancellationToken cancellationToken = default);
@@ -64,6 +67,21 @@ public class LoomService : ApplicationService, ILoomService
     public Task<Result<IEnumerable<Loom>>> GetLoomMonitoringAsync(CancellationToken cancellationToken = default)
     {
         return LoomRepository.GetLoomsCurrentlyStatusAsync(cancellationToken);
+    }
+
+    public Task<Result<IEnumerable<Loom>>> GetFilteredLoomsAsync(LoomFilter filter, CancellationToken cancellationToken = default)
+    {
+        return LoomRepository.GetFilteredLoomsAsync(filter, cancellationToken);
+    }
+
+    public Task<Result<LoomsWithFilters>> GetLoomsWithFiltersAsync(LoomFilter? filter = null, CancellationToken cancellationToken = default)
+    {
+        return LoomRepository.GetLoomsWithFiltersAsync(filter, cancellationToken);
+    }
+
+    public Task<Result<IEnumerable<FilterOption>>> GetFilterOptionsAsync(CancellationToken cancellationToken = default)
+    {
+        return LoomRepository.GetFilterOptionsAsync(cancellationToken);
     }
 
     public async Task<Result> OperationStartStopAsync(OperationStartStop operationStartStop, CancellationToken cancellationToken = default)

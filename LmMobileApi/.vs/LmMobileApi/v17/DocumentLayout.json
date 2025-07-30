@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\LM API\\LmMobileApi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\loomscurrentlystatushub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:loomscurrentlystatushub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\looms\\presentation\\loomendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:looms\\presentation\\loomendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\lmmobileapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:lmmobileapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,18 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\looms\\domain\\loom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:looms\\domain\\loom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\hubs\\loomscurrentlystatushub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:hubs\\loomscurrentlystatushub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\sqldependencies\\loomcurrentlystatusdependency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:sqldependencies\\loomcurrentlystatusdependency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -47,14 +47,6 @@
       "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:dashboard\\infrastructure\\repositories\\dashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\looms\\application\\services\\loomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:looms\\application\\services\\loomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\looms\\presentation\\loomendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:looms\\presentation\\loomendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\datamancontracts\\styleworkorderstartstoppause.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:datamancontracts\\styleworkorderstartstoppause.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -65,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\options\\datamanoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:options\\datamanoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\looms\\infrastructure\\repositories\\loomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|solutionrelative:looms\\infrastructure\\repositories\\loomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}|LmMobileApi.csproj|d:\\lm api\\lmmobileapi\\users\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -102,11 +90,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoomsCurrentlyStatusHub.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\LoomsCurrentlyStatusHub.cs",
+              "RelativeDocumentMoniker": "LoomsCurrentlyStatusHub.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\LoomsCurrentlyStatusHub.cs",
+              "RelativeToolTip": "LoomsCurrentlyStatusHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T19:18:04.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "LoomEndpoints.cs",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Looms\\Presentation\\LoomEndpoints.cs",
+              "RelativeDocumentMoniker": "Looms\\Presentation\\LoomEndpoints.cs",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\Looms\\Presentation\\LoomEndpoints.cs",
+              "RelativeToolTip": "Looms\\Presentation\\LoomEndpoints.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAgwDwAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T19:14:47.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LmMobileApi",
+              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\LmMobileApi.csproj",
+              "RelativeDocumentMoniker": "LmMobileApi.csproj",
+              "ToolTip": "D:\\LM API\\LmMobileApi\\LmMobileApi.csproj",
+              "RelativeToolTip": "LmMobileApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-30T19:14:06.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DashboardService.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Dashboard\\Application\\Services\\DashboardService.cs",
               "RelativeDocumentMoniker": "Dashboard\\Application\\Services\\DashboardService.cs",
@@ -114,36 +141,11 @@
               "RelativeToolTip": "Dashboard\\Application\\Services\\DashboardService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAB3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T16:24:26.568Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-25T16:24:26.568Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "LoomService.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Looms\\Application\\Services\\LoomService.cs",
-              "RelativeDocumentMoniker": "Looms\\Application\\Services\\LoomService.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Looms\\Application\\Services\\LoomService.cs",
-              "RelativeToolTip": "Looms\\Application\\Services\\LoomService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T15:35:41.922Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "LoomEndpoints.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Looms\\Presentation\\LoomEndpoints.cs",
-              "RelativeDocumentMoniker": "Looms\\Presentation\\LoomEndpoints.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Looms\\Presentation\\LoomEndpoints.cs",
-              "RelativeToolTip": "Looms\\Presentation\\LoomEndpoints.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAgwFEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T15:35:14.436Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "WarpWorkOrder23StartStopPause.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\DataManContracts\\WarpWorkOrder23StartStopPause.cs",
               "RelativeDocumentMoniker": "DataManContracts\\WarpWorkOrder23StartStopPause.cs",
@@ -151,12 +153,11 @@
               "RelativeToolTip": "DataManContracts\\WarpWorkOrder23StartStopPause.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T15:20:16.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-25T15:20:16.033Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "StyleWorkOrderStartStopPause.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\DataManContracts\\StyleWorkOrderStartStopPause.cs",
               "RelativeDocumentMoniker": "DataManContracts\\StyleWorkOrderStartStopPause.cs",
@@ -168,20 +169,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\LM API\\LmMobileApi\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAgwLIAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-24T14:23:28.149Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
@@ -189,8 +190,7 @@
               "RelativeToolTip": "appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-24T14:33:20.745Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-24T14:33:20.745Z"
             },
             {
               "$type": "Document",
@@ -203,45 +203,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-07-24T14:19:38.229Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "LoomCurrentlyStatusDependency.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\SqlDependencies\\LoomCurrentlyStatusDependency.cs",
-              "RelativeDocumentMoniker": "SqlDependencies\\LoomCurrentlyStatusDependency.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\SqlDependencies\\LoomCurrentlyStatusDependency.cs",
-              "RelativeToolTip": "SqlDependencies\\LoomCurrentlyStatusDependency.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOcBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T17:33:32.647Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LoomsCurrentlyStatusHub.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Hubs\\LoomsCurrentlyStatusHub.cs",
-              "RelativeDocumentMoniker": "Hubs\\LoomsCurrentlyStatusHub.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Hubs\\LoomsCurrentlyStatusHub.cs",
-              "RelativeToolTip": "Hubs\\LoomsCurrentlyStatusHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABABAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T17:33:21.94Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Loom.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Looms\\Domain\\Loom.cs",
-              "RelativeDocumentMoniker": "Looms\\Domain\\Loom.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Looms\\Domain\\Loom.cs",
-              "RelativeToolTip": "Looms\\Domain\\Loom.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA6wBcAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T16:08:25.086Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -281,7 +242,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "PieceCutting.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\DataManContracts\\PieceCutting.cs",
               "RelativeDocumentMoniker": "DataManContracts\\PieceCutting.cs",
@@ -293,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 13,
               "Title": "DataManOptions.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Options\\DataManOptions.cs",
               "RelativeDocumentMoniker": "Options\\DataManOptions.cs",
@@ -305,7 +266,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 14,
               "Title": "UserService.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Application\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Users\\Application\\Services\\UserService.cs",
@@ -318,18 +279,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "LoomRepository.cs",
-              "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Looms\\Infrastructure\\Repositories\\LoomRepository.cs",
-              "RelativeDocumentMoniker": "Looms\\Infrastructure\\Repositories\\LoomRepository.cs",
-              "ToolTip": "D:\\LM API\\LmMobileApi\\Looms\\Infrastructure\\Repositories\\LoomRepository.cs",
-              "RelativeToolTip": "Looms\\Infrastructure\\Repositories\\LoomRepository.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAwwBwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T16:08:51.641Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
               "Title": "OperationEndpoint.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Operations\\Presentation\\OperationEndpoint.cs",
               "RelativeDocumentMoniker": "Operations\\Presentation\\OperationEndpoint.cs",
@@ -341,7 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 17,
               "Title": "OperationService.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Operations\\Application\\Services\\OperationService.cs",
               "RelativeDocumentMoniker": "Operations\\Application\\Services\\OperationService.cs",
@@ -353,7 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 19,
               "Title": "OperationRepository.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Operations\\Infastructure\\OperationRepository.cs",
               "RelativeDocumentMoniker": "Operations\\Infastructure\\OperationRepository.cs",
@@ -365,7 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 18,
               "Title": "Operation.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Operations\\Domain\\Operation.cs",
               "RelativeDocumentMoniker": "Operations\\Domain\\Operation.cs",
@@ -377,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 15,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "D:\\LM API\\LmMobileApi\\Users\\Infratructure\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Users\\Infratructure\\Repository\\UserRepository.cs",

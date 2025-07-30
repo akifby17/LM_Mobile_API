@@ -19,6 +19,42 @@ public class LoomEndpoints : IEndpoint
             .Produces<ICollection<Loom>>()
             .WithTags("Looms");
 
+        app.MapGet("/api/looms/filters", async (ILoomService loomService, CancellationToken cancellationToken) =>
+            {
+                var result = await loomService.GetFilterOptionsAsync(cancellationToken);
+                return result.IsSuccess ? Results.Ok(result.Data) : Results.BadRequest(result.Error);
+            })
+            .WithName("GetLoomFilters")
+            .Produces<ICollection<FilterOption>>()
+            .WithTags("Looms");
+
+        app.MapPost("/api/looms/filtered", async (LoomFilter filter, ILoomService loomService, CancellationToken cancellationToken) =>
+            {
+                var result = await loomService.GetFilteredLoomsAsync(filter, cancellationToken);
+                return result.IsSuccess ? Results.Ok(result.Data) : Results.BadRequest(result.Error);
+            })
+            .WithName("GetFilteredLooms")
+            .Produces<ICollection<Loom>>()
+            .WithTags("Looms");
+
+        app.MapPost("/api/looms/with-filters", async (LoomFilter? filter, ILoomService loomService, CancellationToken cancellationToken) =>
+            {
+                var result = await loomService.GetLoomsWithFiltersAsync(filter, cancellationToken);
+                return result.IsSuccess ? Results.Ok(result.Data) : Results.BadRequest(result.Error);
+            })
+            .WithName("GetLoomsWithFilters")
+            .Produces<LoomsWithFilters>()
+            .WithTags("Looms");
+
+        app.MapGet("/api/looms/with-filters", async (ILoomService loomService, CancellationToken cancellationToken) =>
+            {
+                var result = await loomService.GetLoomsWithFiltersAsync(null, cancellationToken);
+                return result.IsSuccess ? Results.Ok(result.Data) : Results.BadRequest(result.Error);
+            })
+            .WithName("GetAllLoomsWithFilters")
+            .Produces<LoomsWithFilters>()
+            .WithTags("Looms");
+
         app.MapPost("/api/looms/changeWeaver", async (ChangeWeaver changeWeaver, ILoomService loomService, CancellationToken cancellationToken) =>
         {
             var result = await loomService.ChangeWeaverAsync(changeWeaver, cancellationToken);

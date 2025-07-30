@@ -60,18 +60,7 @@ namespace LmMobileApi
                     }
                 });
             });
-            builder.Services.AddScoped<Func<LoomFilter, string, LoomCurrentlyStatusDependency>>(sp =>
-            {
-                return (filter, connectionId) =>
-                {
-                    var configuration = sp.GetRequiredService<IConfiguration>();
-                    var hubContext = sp.GetRequiredService<IHubContext<LoomsCurrentlyStatusHub>>();
-                    var logger = sp.GetRequiredService<ILogger<LoomCurrentlyStatusDependency>>();
-
-                    // Dependency’nin ctor parametreleri: (IConfiguration, IHubContext<...>, ILogger<...>, LoomFilter, string)
-                    return new LoomCurrentlyStatusDependency(configuration, hubContext, logger, filter, connectionId);
-                };
-            });
+         
             // **YENİ: Options pattern**
             builder.Services.Configure<DataManApiOptions>(builder.Configuration.GetSection("DataManApiOptions"));
 
@@ -175,18 +164,22 @@ namespace LmMobileApi
             builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
             builder.Services.AddScoped<IDashboardService, DashboardService>();
             builder.Services.AddEndpoints(typeof(Program).Assembly);
-
+            builder.Services.AddSingleton<LoomCurrentlyStatusDependency>();
             var app = builder.Build();
-
-          
-            app.UseAuthentication();
-            app.UseAuthorization();
-
+            app.Lifetime.ApplicationStarted.Register(() =>
+            {
+                var sqlDependency = app.Services.GetRequiredService<LoomCurrentlyStatusDependency>();
+                sqlDependency.StartListening();
+            });
+            // Uygulama sonlandığında dependency'i durdurmak için
             app.Lifetime.ApplicationStopping.Register(() =>
             {
                 var sqlDependency = app.Services.GetRequiredService<LoomCurrentlyStatusDependency>();
                 sqlDependency.Dispose();
             });
+
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseCors();
 
             

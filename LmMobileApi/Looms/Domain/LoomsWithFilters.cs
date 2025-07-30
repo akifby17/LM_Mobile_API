@@ -1,5 +1,5 @@
 ﻿
-using LmMobileApi.Looms.Domain;
+namespace LmMobileApi.Looms.Domain;
 
 public class LoomsWithFilters
 {

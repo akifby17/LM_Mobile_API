@@ -1,298 +1,75 @@
 using Dapper;
 using LmMobileApi.Hubs;
 using LmMobileApi.Looms.Domain;
+using LmMobileApi.Looms.Infrastructure.Repositories;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 using System.Data;
-using System.Text;
 
 namespace LmMobileApi.SqlDependencies;
 
 public class LoomCurrentlyStatusDependency : IDisposable
 {
-    //son
+    
     private readonly string _connectionString;
     private readonly IHubContext<LoomsCurrentlyStatusHub> _hubContext;
-    private readonly ILogger<LoomCurrentlyStatusDependency> _logger;
-    private readonly LoomFilter _filter;
-    private readonly string _connectionId; // Hangi client için olduğunu belirtmek için
-
+    private readonly IServiceProvider _serviceProvider;
     private SqlDependency? _sqlDependency;
     private SqlCommand? _command;
     private SqlConnection? _connection;
     private List<Loom> _looms = [];
-    private bool _disposed = false;
-
-    // Filtreleme için hazırlanmış sorgu parçaları
-    private string _filteredQuery = string.Empty;
-    private DynamicParameters _queryParameters = new();
 
     public LoomCurrentlyStatusDependency(
         IConfiguration configuration,
         IHubContext<LoomsCurrentlyStatusHub> hubContext,
-        ILogger<LoomCurrentlyStatusDependency> logger,
-        LoomFilter filter,
-        string connectionId = "") // Client ID'si için
+        IServiceProvider serviceProvider)
     {
         _connectionString = configuration.GetConnectionString("DefaultConnection")
             ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
         _hubContext = hubContext;
-        _logger = logger;
-        _filter = filter;
-        _connectionId = connectionId; // Client-specific bildirimler için
+        _serviceProvider = serviceProvider;
 
         // SQL Server broker servisini başlatma
-        try
-        {
-            SqlDependency.Start(_connectionString);
-            _logger.LogInformation("SQL Dependency started with filter {@Filter} for connection {ConnectionId}",
-                filter, connectionId);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Failed to start SQL Dependency service");
-            throw;
-        }
-
-        // Filtreleme sorgusunu önceden hazırla
-        PrepareFilteredQuery();
-    }
-    /*
-     
-     var whereClauses = new List<string>();
-            var parameters = new DynamicParameters();
-
-            if (!string.IsNullOrEmpty(filter.EventNameTR))
-            {
-                whereClauses.Add("EventID = @EventNameTR");
-                parameters.Add("@EventNameTR", filter.EventNameTR);
-            }
-            if (!string.IsNullOrEmpty(filter.ModelName))
-            {
-                whereClauses.Add("ModelName =@ModelName");
-                parameters.Add("@ModelName", filter.ModelName);
-            }
-            if (!string.IsNullOrEmpty(filter.MarkName))
-            {
-                whereClauses.Add("MarkName = @MarkName");
-                parameters.Add("@MarkName", filter.MarkName);
-            }
-            if (!string.IsNullOrEmpty(filter.GroupName))
-            {
-                whereClauses.Add("GroupName = @GroupName");
-                parameters.Add("@GroupName", filter.GroupName);
-            }
-            if (!string.IsNullOrEmpty(filter.HallName))
-            {
-                whereClauses.Add("HallName = @HallName");
-                parameters.Add("@HallName", filter.HallName);
-            }
-            if (!string.IsNullOrEmpty(filter.ClassName))
-            {
-                whereClauses.Add("ClassName = @ClassName");
-                parameters.Add("@ClassName", filter.ClassName);
-            }
-     
-     
-     */
-    /// <summary>
-    /// Filter'a göre SQL sorgusu ve parametrelerini hazırlar
-    /// </summary>
-    private void PrepareFilteredQuery()
-    {
-        var whereClauses = new List<string>();
-        _queryParameters = new DynamicParameters();
-
-        if (!string.IsNullOrEmpty(_filter.EventNameTR))
-        {
-            whereClauses.Add("EventID = @EventNameTR");
-            _queryParameters.Add("@EventNameTR", _filter.EventNameTR);
-        }
-
-        if (!string.IsNullOrEmpty(_filter.ModelName))
-        {
-            whereClauses.Add("ModelName =@ModelName");
-            _queryParameters.Add("@ModelName", _filter.ModelName);
-        }
-
-        if (!string.IsNullOrEmpty(_filter.MarkName))
-        {
-            whereClauses.Add("MarkName = @MarkName");
-            _queryParameters.Add("@MarkName", _filter.MarkName);
-        }
-
-        if (!string.IsNullOrEmpty(_filter.GroupName))
-        {
-            whereClauses.Add("GroupName = @GroupName");
-            _queryParameters.Add("@GroupName", _filter.GroupName);
-        }
-
-        if (!string.IsNullOrEmpty(_filter.ClassName))
-        {
-            whereClauses.Add("ClassName = @ClassName");
-            _queryParameters.Add("@ClassName", _filter.ClassName);
-        }
-
-        // HallName filtresi eklendi (eksikti)
-        if (!string.IsNullOrEmpty(_filter.HallName))
-        {
-            whereClauses.Add("HallName = @HallName");
-            _queryParameters.Add("@HallName", _filter.HallName);
-        }
-
-        // Filtrelenmiş sorguyu hazırla
-        var queryBuilder = new StringBuilder("SELECT * FROM tvw_mobile_Looms_CurrentlyStatus");
-        if (whereClauses.Any())
-        {
-            queryBuilder.Append(" WHERE " + string.Join(" AND ", whereClauses));
-        }
-        queryBuilder.Append(" ORDER BY LoomNo");
-
-        _filteredQuery = queryBuilder.ToString();
-
-        _logger.LogDebug("Prepared filtered query: {Query} with {ParamCount} parameters",
-            _filteredQuery, _queryParameters.ParameterNames.Count());
+        SqlDependency.Start(_connectionString);
     }
 
-    public async Task StartListening()
+    public void StartListening()
     {
-        if (_disposed)
-        {
-            _logger.LogWarning("Cannot start listening on disposed dependency");
-            return;
-        }
-
         try
         {
-            CleanupConnection();
-
+            // Bağlantı ve komut oluşturma
             _connection = new SqlConnection(_connectionString);
-            await _connection.OpenAsync();
+            _connection.Open();
 
-            // Dependency için temel tablodan dinleme sorgusu (view değil, tablo)
-            var dependencyQuery = BuildDependencyQuery();
-
-            _command = new SqlCommand(dependencyQuery, _connection)
+            _command = new SqlCommand(
+                "SELECT LoomNo, EventID, LoomSpeed, PID, WID, OperationCode, ShiftNo, ShiftPickCounter, StyleWorkOrderNo, WarpWorkOrderNo FROM dbo.Looms_CurrentlyStatus",
+                _connection)
             {
                 CommandType = CommandType.Text,
                 Notification = null
             };
 
-            // Parametreleri ekle
-            foreach (var name in _queryParameters.ParameterNames)
-            {
-                _command.Parameters.AddWithValue(name, _queryParameters.Get<object>(name)!);
-            }
-
+            // Dependency oluşturma ve dinlemeye başlama
             _sqlDependency = new SqlDependency(_command);
             _sqlDependency.OnChange += SqlDependency_OnChange;
 
-            // Dependency'yi başlatmak için sorguyu çalıştır
-            using var reader = await _command.ExecuteReaderAsync();
-            reader.Close();
+            // Sorguyu çalıştır (dependency başlatmak için)
+            using var reader = _command.ExecuteReader();
 
-            // İlk veriyi yükle
-            await LoadInitialFilteredData();
-
-            _logger.LogInformation("SQL Dependency listening started with filter, loaded {Count} looms", _looms.Count);
+            // Şu anki durumu al
+            _looms = _connection.Query<Loom>("SELECT * FROM tvw_mobile_Looms_CurrentlyStatus ORDER BY LoomNo").AsList();
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error occurred while starting SQL Dependency listening");
-            CleanupConnection();
-        }
-    }
-
-    /// <summary>
-    /// SqlDependency için temel tablo sorgusunu oluşturur
-    /// </summary>
-    private string BuildDependencyQuery()
-    {
-        var whereClauses = new List<string>();
-
-        if (!string.IsNullOrEmpty(_filter.EventNameTR))
-        {
-            whereClauses.Add("EventID = @EventNameTR");
-
-        }
-
-        if (!string.IsNullOrEmpty(_filter.ModelName))
-        {
-            whereClauses.Add("ModelName =@ModelName");
-
-        }
-
-        if (!string.IsNullOrEmpty(_filter.MarkName))
-        {
-            whereClauses.Add("MarkName = @MarkName");
-
-        }
-
-        if (!string.IsNullOrEmpty(_filter.GroupName))
-        {
-            whereClauses.Add("GroupName = @GroupName");
-
-        }
-
-        if (!string.IsNullOrEmpty(_filter.ClassName))
-        {
-            whereClauses.Add("ClassName = @ClassName");
-
-        }
-
-        // HallName filtresi eklendi (eksikti)
-        if (!string.IsNullOrEmpty(_filter.HallName))
-        {
-            whereClauses.Add("HallName = @HallName");
-        }
-
-        var query = new StringBuilder(
-            "SELECT LoomNo, EventID, LoomSpeed, PID, WID, OperationCode, ShiftNo, ShiftPickCounter, StyleWorkOrderNo, WarpWorkOrderNo " +
-            "FROM dbo.Looms_CurrentlyStatus"
-        );
-
-        if (whereClauses.Any())
-            query.Append(" WHERE " + string.Join(" AND ", whereClauses));
-
-        return query.ToString();
-    }
-
-    /// <summary>
-    /// Filtrelenmiş ilk veriyi yükler
-    /// </summary>
-    private async Task LoadInitialFilteredData()
-    {
-        try
-        {
-            if (_connection?.State != ConnectionState.Open)
-            {
-                _connection = new SqlConnection(_connectionString);
-                await _connection.OpenAsync();
-            }
-
-            _looms = _connection.Query<Loom>(_filteredQuery, _queryParameters).AsList();
-
-            _logger.LogDebug("Loaded {Count} filtered looms for connection {ConnectionId}",
-                _looms.Count, _connectionId);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error loading initial filtered data");
-            throw;
+            Console.WriteLine($"SQL Dependency başlatılırken hata oluştu: {ex.Message}");
         }
     }
 
     private async void SqlDependency_OnChange(object sender, SqlNotificationEventArgs e)
     {
-        _logger.LogInformation("SqlDependency_OnChange(): Type={Type}, Info={Info}, Source={Source}",
-                   e.Type, e.Info, e.Source);
-        if (_disposed)
-        {
-            _logger.LogDebug("Ignoring SQL dependency change event on disposed instance");
-            return;
-        }
-
+        // Bu olay handler'ı sadece bir kez çalışır, yeni dinleyici kurmak gerekiyor
         if (_sqlDependency != null)
         {
             _sqlDependency.OnChange -= SqlDependency_OnChange;
@@ -302,187 +79,154 @@ public class LoomCurrentlyStatusDependency : IDisposable
         {
             if (e.Type == SqlNotificationType.Change && e.Info != SqlNotificationInfo.Invalid)
             {
-                await HandleFilteredDataChange();
-            }
-            else
-            {
-                _logger.LogInformation("SqlDependency_OnChange(): Type={Type}, Info={Info}, Source={Source}",
-                    e.Type, e.Info, e.Source);
+                List<Loom> currentLooms = _connection!.Query<Loom>("SELECT * FROM tvw_mobile_Looms_CurrentlyStatus ORDER BY LoomNo").ToList();
+                List<Loom> changedLooms = new();
 
-            }
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error occurred while handling SQL dependency change");
-        }
-        finally
-        {
-            if (!_disposed)
-            {
-                await Task.Delay(1000);
-                StartListening();
-            }
-        }
-    }
-
-    /// <summary>
-    /// Sadece filtrelenmiş verilerdeki değişiklikleri işler
-    /// </summary>
-    private async Task HandleFilteredDataChange()
-    {
-        try
-        {
-            if (_connection?.State != ConnectionState.Open)
-            {
-                _connection?.Close();
-                _connection = new SqlConnection(_connectionString);
-                await _connection.OpenAsync();
-            }
-
-            // Yeni filtrelenmiş tüm looms
-            var currentFilteredLooms = _connection.Query<Loom>(_filteredQuery, _queryParameters).AsList();
-
-            // Mevcut listeyle karşılaştırıp değişiklikleri tespit et
-            var changes = DetectChanges(_looms, currentFilteredLooms);
-
-            if (changes.HasChanges)
-            {
-                _logger.LogInformation(
-                    "Detected changes for connection {ConnectionId}: {AddedCount} added, {UpdatedCount} updated, {RemovedCount} removed",
-                    _connectionId, changes.Added.Count, changes.Updated.Count, changes.Removed.Count);
-
-                // —— Filtre listesini tekrar oluşturuyoruz ——
-                var filters = new List<FilterOption>
-            {
-                new FilterOption {
-                    Key = "hallName",
-                    Values = currentFilteredLooms.Select(x => x.HallName).Distinct().OrderBy(x => x)
-                },
-                new FilterOption {
-                    Key = "markName",
-                    Values = currentFilteredLooms.Select(x => x.MarkName).Distinct().OrderBy(x => x)
-                },
-                new FilterOption {
-                    Key = "groupName",
-                    Values = currentFilteredLooms.Select(x => x.GroupName).Distinct().OrderBy(x => x)
-                },
-                new FilterOption {
-                    Key = "modelName",
-                    Values = currentFilteredLooms.Select(x => x.ModelName).Distinct().OrderBy(x => x)
+                // Değişen loom'ları tespit et
+                foreach (Loom currentLoom in currentLooms)
+                {
+                    Loom? findLoom = _looms.Find(x => x.LoomNo == currentLoom.LoomNo);
+                    
+                    if (findLoom != null && !currentLoom.Equals(findLoom))
+                    {
+                        changedLooms.Add(currentLoom);
+                    }
+                    else if (findLoom == null)
+                    {
+                        // Yeni loom eklendi
+                        changedLooms.Add(currentLoom);
+                    }
                 }
-            };
 
-                // Hedef client
-                var targetClient = string.IsNullOrEmpty(_connectionId)
-                    ? _hubContext.Clients.All
-                    : _hubContext.Clients.Client(_connectionId);
+                // Değişiklikleri SignalR üzerinden gönder
+                if (changedLooms.Any())
+                {
+                    // Değişen loom'ları + filtre seçeneklerini birlikte gönder
+                    await SendChangedLoomsWithFilters(changedLooms);
+                }
 
-                // Her bir event'i hem ilgili loom’ları hem de filtreleri içerecek şekilde paketleyelim:
-                if (changes.Added.Any())
-                    await targetClient.SendAsync("LoomsAdded", new
-                    {
-                        looms = changes.Added,
-                        filters = filters
-                    });
-
-                if (changes.Updated.Any())
-                    await targetClient.SendAsync("LoomsUpdated", new
-                    {
-                        looms = changes.Updated,
-                        filters = filters
-                    });
-
-                if (changes.Removed.Any())
-                    await targetClient.SendAsync("LoomsRemoved", new
-                    {
-                        looms = changes.Removed.Select(l => l.LoomNo).ToList(),
-                        filters = filters
-                    });
+                // Cache'i güncelle
+                _looms = currentLooms;
             }
-
-            // Yeni durumu bir sonraki tetikleme için sakla
-            _looms = currentFilteredLooms;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error occurred while handling filtered data change");
+            Console.WriteLine($"SignalR bildirimi gönderilirken hata: {ex.Message}");
         }
+
+        // Yeniden dinlemeye başla
+        StartListening();
     }
 
-
-    /// <summary>
-    /// İki liste arasındaki değişiklikleri tespit eder
-    /// </summary>
-    private ChangeDetectionResult DetectChanges(List<Loom> oldLooms, List<Loom> newLooms)
-    {
-        var result = new ChangeDetectionResult();
-
-        // Eklenen kayıtlar
-        result.Added = newLooms.Where(n => !oldLooms.Any(o => o.LoomNo == n.LoomNo)).ToList();
-
-        // Silinen kayıtlar
-        result.Removed = oldLooms.Where(o => !newLooms.Any(n => n.LoomNo == o.LoomNo)).ToList();
-
-        // Güncellenmiş kayıtlar
-        result.Updated = newLooms.Where(n =>
-            oldLooms.Any(o => o.LoomNo == n.LoomNo && !o.Equals(n))).ToList();
-
-        return result;
-    }
-
-    private void CleanupConnection()
+    private async Task SendChangedLoomsWithFilters(List<Loom> changedLooms)
     {
         try
         {
-            if (_sqlDependency != null)
+            using var scope = _serviceProvider.CreateScope();
+            var loomRepository = scope.ServiceProvider.GetRequiredService<ILoomRepository>();
+            
+            // Filtre seçeneklerini al
+            var filterOptionsResult = await loomRepository.GetFilterOptionsAsync();
+            if (!filterOptionsResult.IsSuccess)
             {
-                _sqlDependency.OnChange -= SqlDependency_OnChange;
-                _sqlDependency = null;
+                Console.WriteLine($"❌ Filtre seçenekleri alınırken hata: {filterOptionsResult.Error}");
+                return;
             }
 
-            _command?.Dispose();
-            _command = null;
+            // 1. Filtresiz kullanıcılara tüm değişen loom'lar + filtreler gönder
+            var allLoomsData = new LoomsWithFilters
+            {
+                looms = changedLooms,
+                filters = filterOptionsResult.Data!
+            };
+            await _hubContext.Clients.Group("all").SendAsync("FilteredLoomsDataChanged", allLoomsData);
 
-            _connection?.Close();
-            _connection?.Dispose();
-            _connection = null;
+            // 2. Her aktif filtre grubu için filtreye uyan değişen loom'lar + filtreler gönder
+            var activeGroups = LoomsCurrentlyStatusHub.ConnectionFilters.Values.Distinct().ToList();
+            
+            foreach (var filter in activeGroups)
+            {
+                // Bu filtreye uyan değişen loom'ları bul
+                var filteredChangedLooms = changedLooms.Where(loom => LoomMatchesFilter(loom, filter)).ToList();
+                
+                if (filteredChangedLooms.Any())
+                {
+                    var filteredLoomsData = new LoomsWithFilters
+                    {
+                        looms = filteredChangedLooms,
+                        filters = filterOptionsResult.Data!
+                    };
+
+                    var groupName = GetGroupNameFromFilter(filter);
+                    await _hubContext.Clients.Group(groupName).SendAsync("FilteredLoomsDataChanged", filteredLoomsData);
+                }
+            }
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error occurred while cleaning up connection");
+            Console.WriteLine($"❌ SendChangedLoomsWithFilters error: {ex.Message}");
         }
     }
+
+
+
+    // Loom'un filtreye uygun olup olmadığını kontrol et (Hub'dan kopyalandı)
+    private static bool LoomMatchesFilter(Loom loom, LoomFilter filter)
+    {
+        if (!string.IsNullOrEmpty(filter.HallName) && loom.HallName != filter.HallName)
+            return false;
+        if (!string.IsNullOrEmpty(filter.MarkName) && loom.MarkName != filter.MarkName)
+            return false;
+        if (!string.IsNullOrEmpty(filter.GroupName) && loom.GroupName != filter.GroupName)
+            return false;
+        if (!string.IsNullOrEmpty(filter.ModelName) && loom.ModelName != filter.ModelName)
+            return false;
+        if (!string.IsNullOrEmpty(filter.ClassName) && loom.ClassName != filter.ClassName)
+            return false;
+        if (!string.IsNullOrEmpty(filter.EventNameTR) && loom.EventNameTR != filter.EventNameTR)
+            return false;
+
+        return true;
+    }
+
+    // Filtreden grup adı oluştur (Hub'dan kopyalandı)
+    private static string GetGroupNameFromFilter(LoomFilter filter)
+    {
+        var filterParts = new List<string>();
+        
+        if (!string.IsNullOrEmpty(filter.HallName))
+            filterParts.Add($"hall:{filter.HallName}");
+        if (!string.IsNullOrEmpty(filter.MarkName))
+            filterParts.Add($"mark:{filter.MarkName}");
+        if (!string.IsNullOrEmpty(filter.GroupName))
+            filterParts.Add($"group:{filter.GroupName}");
+        if (!string.IsNullOrEmpty(filter.ModelName))
+            filterParts.Add($"model:{filter.ModelName}");
+        if (!string.IsNullOrEmpty(filter.ClassName))
+            filterParts.Add($"class:{filter.ClassName}");
+        if (!string.IsNullOrEmpty(filter.EventNameTR))
+            filterParts.Add($"event:{filter.EventNameTR}");
+
+        return filterParts.Count == 0 ? "all" : string.Join("|", filterParts);
+    }
+
+    // Bu method artık kullanılmıyor - SendChangedLoomsWithFilters her şeyi birlikte gönderiyor
+    [Obsolete("Use SendChangedLoomsWithFilters instead")]
+    private async Task SendFilterOptionsUpdate()
+    {
+        // Artık kullanılmıyor, SendChangedLoomsWithFilters method'u hem değişen loom'ları
+        // hem de filtre seçeneklerini birlikte FilteredLoomsDataChanged event'i ile gönderiyor
+    }
+
+
 
     public void Dispose()
     {
-        if (_disposed) return;
-
-        try
-        {
-            _disposed = true;
-            CleanupConnection();
-
-            // SqlDependency.Stop sadece son instance dispose edildiğinde çağrılmalı
-            // Bu implementation'da her client için ayrı dependency var, 
-            // bu yüzden global counter veya manager gerekebilir
-
-            _logger.LogInformation("SQL Dependency disposed for connection {ConnectionId}", _connectionId);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error occurred during disposal");
-        }
+        if (_sqlDependency != null)
+            _sqlDependency.OnChange -= SqlDependency_OnChange;
+        _connection?.Close();
+        _connection?.Dispose();
+        SqlDependency.Stop(_connectionString);
     }
 }
 
-/// <summary>
-/// Değişiklik tespiti sonuçları
-/// </summary>
-public class ChangeDetectionResult
-{
-    public List<Loom> Added { get; set; } = new();
-    public List<Loom> Updated { get; set; } = new();
-    public List<Loom> Removed { get; set; } = new();
-
-    public bool HasChanges => Added.Any() || Updated.Any() || Removed.Any();
-}

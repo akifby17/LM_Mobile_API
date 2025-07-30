@@ -1,5 +1,10 @@
-﻿public class LoomFilter
+﻿using System.Text.Json.Serialization;
+
+namespace LmMobileApi.Looms.Domain;
+
+public class LoomFilter
 {
+    [JsonPropertyName("eventNameTR")]
     public string? EventNameTR { get; set; }
     public string? ModelName { get; set; }
     public string? MarkName { get; set; }
