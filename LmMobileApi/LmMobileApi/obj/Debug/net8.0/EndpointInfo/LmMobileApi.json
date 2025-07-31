@@ -1,0 +1,1076 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Loom Monitoring Web Api",
+    "version": "v1.0.0"
+  },
+  "paths": {
+    "/api/dashboard/getDualData": {
+      "post": {
+        "tags": [
+          "Dashboard"
+        ],
+        "description": "İki liste döndürür: charts (sabit 12 veri) + operations (değişken veri) Mode 0 aktif vardiya Mode 1: 1 gün öncesi Mode 2: 1 hafta öncesi\n Mode 3: 1 ay öncesi Mode 4: Custom, Custom için veriler girilmeli örnek veri formatı:2025-07-01 00:00:00   ",
+        "operationId": "GetDashboardDualData",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PastDatePieChartRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardDualResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/looms/monitoring": {
+      "get": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "GetLoomsCurrentlyStatus",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Loom"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/filters": {
+      "get": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "GetLoomFilters",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilterOption"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/filtered": {
+      "post": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "GetFilteredLooms",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoomFilter"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Loom"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/with-filters": {
+      "post": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "GetLoomsWithFilters",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoomFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoomsWithFilters"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "GetAllLoomsWithFilters",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoomsWithFilters"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/changeWeaver": {
+      "post": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "ChangeWeaver",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeWeaver"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/operationStartStop": {
+      "post": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "OperationStartStop",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OperationStartStop"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/pieceCutting": {
+      "post": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "PieceCutting",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PieceCutting"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/styleWorkOrderStartStopPause": {
+      "post": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "StyleWorkOrderStartStopPause",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StyleWorkOrderStartStopPause"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/warpWorkOrderStartStopPause": {
+      "post": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "WarpWorkOrderStartStopPause",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WarpWorkOrderStartStopPause"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/looms/warpWorkOrder23StartStopPause": {
+      "post": {
+        "tags": [
+          "Looms"
+        ],
+        "operationId": "WarpWorkOrder23StartStopPause",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WarpWorkOrder23StartStopPause"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/operations": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "operationId": "GetOperationsAsync",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/personnels": {
+      "get": {
+        "tags": [
+          "Personnels"
+        ],
+        "operationId": "GetPersonnelsAsync",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Personnel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/login": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "UserLogin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/refresh-token": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "RefreshToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefreshTokenResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/revoke-token": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "RevokeToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/check-token": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "CheckToken",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActiveShiftPieChart": {
+        "type": "object",
+        "properties": {
+          "efficiency": {
+            "type": "number",
+            "format": "double"
+          },
+          "weftStop": {
+            "type": "number",
+            "format": "double"
+          },
+          "warpStop": {
+            "type": "number",
+            "format": "double"
+          },
+          "otherStop": {
+            "type": "number",
+            "format": "double"
+          },
+          "operationStop": {
+            "type": "number",
+            "format": "double"
+          },
+          "pickCounter": {
+            "type": "number",
+            "format": "double"
+          },
+          "productedLength": {
+            "type": "number",
+            "format": "double"
+          },
+          "warpKa": {
+            "type": "number",
+            "format": "double"
+          },
+          "weftKa": {
+            "type": "number",
+            "format": "double"
+          },
+          "loomCount": {
+            "type": "number",
+            "format": "double"
+          },
+          "avgSpeed": {
+            "type": "number",
+            "format": "double"
+          },
+          "weaverEff": {
+            "type": "number",
+            "format": "double"
+          },
+          "avgDensity": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeWeaver": {
+        "type": "object",
+        "properties": {
+          "loomNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "weaverId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DashboardDualResponse": {
+        "type": "object",
+        "properties": {
+          "charts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActiveShiftPieChart"
+            },
+            "nullable": true
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": { }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilterOption": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "personnelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "personnelName": {
+            "type": "string",
+            "nullable": true
+          },
+          "accessTokenExpiresAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "refreshTokenExpiresAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Loom": {
+        "type": "object",
+        "properties": {
+          "loomNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "efficiency": {
+            "type": "number",
+            "format": "double"
+          },
+          "operationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "operatorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "weaverName": {
+            "type": "string",
+            "nullable": true
+          },
+          "eventId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loomSpeed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hallName": {
+            "type": "string",
+            "nullable": true
+          },
+          "markName": {
+            "type": "string",
+            "nullable": true
+          },
+          "modelName": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "className": {
+            "type": "string",
+            "nullable": true
+          },
+          "warpName": {
+            "type": "string",
+            "nullable": true
+          },
+          "variantNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "styleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "weaverEff": {
+            "type": "number",
+            "format": "double"
+          },
+          "eventDuration": {
+            "type": "string",
+            "nullable": true
+          },
+          "productedLength": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalLength": {
+            "type": "number",
+            "format": "double"
+          },
+          "eventNameTR": {
+            "type": "string",
+            "nullable": true
+          },
+          "opDuration": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoomFilter": {
+        "type": "object",
+        "properties": {
+          "eventNameTR": {
+            "type": "string",
+            "nullable": true
+          },
+          "modelName": {
+            "type": "string",
+            "nullable": true
+          },
+          "markName": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "hallName": {
+            "type": "string",
+            "nullable": true
+          },
+          "className": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoomsWithFilters": {
+        "type": "object",
+        "properties": {
+          "looms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Loom"
+            },
+            "nullable": true
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterOption"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Operation": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OperationStartStop": {
+        "type": "object",
+        "properties": {
+          "loomNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "personelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "operationCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PastDateMode": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PastDatePieChartRequest": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/PastDateMode"
+          },
+          "customStartDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "customEndDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Personnel": {
+        "type": "object",
+        "properties": {
+          "personnelID": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "personnelName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PieceCutting": {
+        "type": "object",
+        "properties": {
+          "loomNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "personelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pieceNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pieceLength": {
+            "type": "number",
+            "format": "double"
+          },
+          "manuelLength": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshTokenRequest": {
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshTokenResponse": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "accessTokenExpiresAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "refreshTokenExpiresAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Result": {
+        "type": "object",
+        "properties": {
+          "isSuccess": {
+            "type": "boolean"
+          },
+          "isFailure": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "error": {
+            "$ref": "#/components/schemas/Error"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StyleWorkOrderStartStopPause": {
+        "type": "object",
+        "properties": {
+          "loomNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "personelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "operationCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "pickDensity": {
+            "type": "number",
+            "format": "double"
+          },
+          "styleLength": {
+            "type": "number",
+            "format": "double"
+          },
+          "manuelLength": {
+            "type": "number",
+            "format": "double"
+          },
+          "manuelWeight": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "personnelId": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "personnelName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WarpWorkOrder23StartStopPause": {
+        "type": "object",
+        "properties": {
+          "loomNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "personelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "warpWorkOrderNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sideWarpNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "warpLenth": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WarpWorkOrderStartStopPause": {
+        "type": "object",
+        "properties": {
+          "loomNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "personelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "warpWorkOrderNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "warpLength": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "scheme": "Bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

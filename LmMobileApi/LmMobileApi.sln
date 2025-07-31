@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36301.6 d17.14
+VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LmMobileApi", "LmMobileApi.csproj", "{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LmMobileApi", "LmMobileApi\LmMobileApi.csproj", "{8270C561-1185-4F48-A066-2EA61D21111C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4D53D62-9793-45AF-BD02-2E7D1A722BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8270C561-1185-4F48-A066-2EA61D21111C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8270C561-1185-4F48-A066-2EA61D21111C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8270C561-1185-4F48-A066-2EA61D21111C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8270C561-1185-4F48-A066-2EA61D21111C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1E354145-81C5-4D82-971D-32DF9864F8D9}
+		SolutionGuid = {0BA86032-467F-4874-96EC-19BBBCE3A5A1}
 	EndGlobalSection
 EndGlobal
