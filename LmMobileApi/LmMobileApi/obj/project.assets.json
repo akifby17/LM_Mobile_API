@@ -150,7 +150,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Data.SqlClient/6.0.1": {
+      "Microsoft.Data.SqlClient/6.0.2": {
         "type": "package",
         "dependencies": {
           "Azure.Identity": "1.11.4",
@@ -974,10 +974,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Data.SqlClient/6.0.1": {
-      "sha512": "v7HxnYYXGGCJilxeQ4Pdks+popVuGajBpHmau0RU4ACIcbfs5qCNUnCogGpZ+CJ//8Qafhxq7vc5a8L9d6O8Eg==",
+    "Microsoft.Data.SqlClient/6.0.2": {
+      "sha512": "RDqwzNu5slSqGy0eSgnN4fuLdGI1w9ZHBRNALrbUsykOIbXtGCpyotG0r5zz+HHtzxbe6LtcAyWcOiu0a+Fx/A==",
       "type": "package",
-      "path": "microsoft.data.sqlclient/6.0.1",
+      "path": "microsoft.data.sqlclient/6.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1028,7 +1028,7 @@
         "lib/net9.0/tr/Microsoft.Data.SqlClient.resources.dll",
         "lib/net9.0/zh-Hans/Microsoft.Data.SqlClient.resources.dll",
         "lib/net9.0/zh-Hant/Microsoft.Data.SqlClient.resources.dll",
-        "microsoft.data.sqlclient.6.0.1.nupkg.sha512",
+        "microsoft.data.sqlclient.6.0.2.nupkg.sha512",
         "microsoft.data.sqlclient.nuspec",
         "ref/net462/Microsoft.Data.SqlClient.dll",
         "ref/net462/Microsoft.Data.SqlClient.xml",
@@ -2252,29 +2252,32 @@
       "Dapper >= 2.1.66",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.15",
       "Microsoft.AspNetCore.OpenApi >= 8.0.14",
-      "Microsoft.Data.SqlClient >= 6.0.1",
+      "Microsoft.Data.SqlClient >= 6.0.2",
       "Swashbuckle.AspNetCore >= 6.6.2",
       "dbup-sqlserver >= 6.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\akif-\\.nuget\\packages\\": {},
+    "C:\\Users\\teksd\\.nuget\\packages\\": {},
+    "C:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LM Project\\31.07.2025\\LmMobileApi\\LmMobileApi.csproj",
+      "projectUniqueName": "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\LmMobileApi.csproj",
       "projectName": "LmMobileApi",
-      "projectPath": "D:\\LM Project\\31.07.2025\\LmMobileApi\\LmMobileApi.csproj",
-      "packagesPath": "C:\\Users\\akif-\\.nuget\\packages\\",
-      "outputPath": "D:\\LM Project\\31.07.2025\\LmMobileApi\\obj\\",
+      "projectPath": "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\LmMobileApi.csproj",
+      "packagesPath": "C:\\Users\\teksd\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\akif-\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\teksd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2283,6 +2286,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\DevExpress 23.2\\Components\\System\\Components\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2321,7 +2325,7 @@
           },
           "Microsoft.Data.SqlClient": {
             "target": "Package",
-            "version": "[6.0.1, )"
+            "version": "[6.0.2, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -2351,7 +2355,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

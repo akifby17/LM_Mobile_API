@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LM Project\\31.07.2025\\LmMobileApi\\LmMobileApi.csproj": {}
+    "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\LmMobileApi.csproj": {}
   },
   "projects": {
-    "D:\\LM Project\\31.07.2025\\LmMobileApi\\LmMobileApi.csproj": {
+    "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\LmMobileApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LM Project\\31.07.2025\\LmMobileApi\\LmMobileApi.csproj",
+        "projectUniqueName": "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\LmMobileApi.csproj",
         "projectName": "LmMobileApi",
-        "projectPath": "D:\\LM Project\\31.07.2025\\LmMobileApi\\LmMobileApi.csproj",
-        "packagesPath": "C:\\Users\\akif-\\.nuget\\packages\\",
-        "outputPath": "D:\\LM Project\\31.07.2025\\LmMobileApi\\obj\\",
+        "projectPath": "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\LmMobileApi.csproj",
+        "packagesPath": "C:\\Users\\teksd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\akif-\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\teksd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +28,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,7 +67,7 @@
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -94,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

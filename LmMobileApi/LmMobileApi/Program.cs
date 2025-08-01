@@ -14,6 +14,9 @@ using LmMobileApi.SqlDependencies;
 using LmMobileApi.Users.Application.Services;
 using LmMobileApi.Users.Domain;
 using LmMobileApi.Users.Infrastructure.Repositories;
+using LmMobileApi.Style.Application.Services;
+using LmMobileApi.Style.Infrastructure.Repositories;
+using LmMobileApi.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
@@ -121,6 +124,10 @@ namespace LmMobileApi
             // **YENİ: Operations servisleri**
             builder.Services.AddScoped<IOperationRepository, OperationRepository>();
             builder.Services.AddScoped<IOperationService, OperationService>();
+
+            // **YENİ: Style servisleri**
+            builder.Services.AddScoped<IStyleWorkOrderRepository, StyleWorkOrderRepository>();
+            builder.Services.AddScoped<IStyleWorkOrderService, StyleWorkOrderService>();
 
             builder.Services.AddScoped<ILoomRepository, LoomRepository>();
 

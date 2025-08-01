@@ -50,7 +50,7 @@ public class LoomCurrentlyStatusDependency : IDisposable
             {
                 CommandType = CommandType.Text,
                 Notification = null
-            }) ;
+            })
 
             // Dependency oluşturma ve dinlemeye başlama
             _sqlDependency = new SqlDependency(_command);
@@ -213,10 +213,11 @@ public class LoomCurrentlyStatusDependency : IDisposable
 
     // Bu method artık kullanılmıyor - SendChangedLoomsWithFilters her şeyi birlikte gönderiyor
     [Obsolete("Use SendChangedLoomsWithFilters instead")]
-    private async Task SendFilterOptionsUpdate()
+    private Task SendFilterOptionsUpdate()
     {
         // Artık kullanılmıyor, SendChangedLoomsWithFilters method'u hem değişen loom'ları
         // hem de filtre seçeneklerini birlikte FilteredLoomsDataChanged event'i ile gönderiyor
+        return Task.CompletedTask;
     }
 
 
