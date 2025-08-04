@@ -128,7 +128,7 @@ namespace LmMobileApi
             // **YENİ: Style servisleri**
             builder.Services.AddScoped<IStyleWorkOrderRepository, StyleWorkOrderRepository>();
             builder.Services.AddScoped<IStyleWorkOrderService, StyleWorkOrderService>();
-
+            builder.Services.AddScoped<ICurrentOperationService, CurrentOperationService>();
             builder.Services.AddScoped<ILoomRepository, LoomRepository>();
 
 

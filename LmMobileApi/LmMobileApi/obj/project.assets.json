@@ -2265,11 +2265,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\LmMobileApi.csproj",
+      "projectUniqueName": "D:\\Dotnet Projects\\DataManApi\\LM_Mobile_API\\LmMobileApi\\LmMobileApi\\LmMobileApi.csproj",
       "projectName": "LmMobileApi",
-      "projectPath": "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\LmMobileApi.csproj",
+      "projectPath": "D:\\Dotnet Projects\\DataManApi\\LM_Mobile_API\\LmMobileApi\\LmMobileApi\\LmMobileApi.csproj",
       "packagesPath": "C:\\Users\\teksd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\teksd\\OneDrive\\Masaüstü\\LM_Mobile_API-main\\LM_Mobile_API-main\\LmMobileApi\\LmMobileApi\\obj\\",
+      "outputPath": "D:\\Dotnet Projects\\DataManApi\\LM_Mobile_API\\LmMobileApi\\LmMobileApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages",

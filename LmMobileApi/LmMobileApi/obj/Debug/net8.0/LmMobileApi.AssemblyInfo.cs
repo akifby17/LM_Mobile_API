@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LmMobileApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6ddcd90404a33908ae39903accce917d62357b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("LmMobileApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LmMobileApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
